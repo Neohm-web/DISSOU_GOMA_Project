@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity2_1">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="403dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="4dp">
+
+        <TextView
+            android:id="@+id/activity2Question5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5) Quel animal d'Afrique peut courir à 120 km/h ?"
+            android:textColor="#997E74"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="85dp">
+
+            <RadioButton
+                android:id="@+id/activity2Question5Answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lion" />
+
+            <RadioButton
+                android:id="@+id/activity2Question5Answer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guépard" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Suivant"
+        app:layout_constraintBottom_toBottomOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="15dp"
+        android:text="Précedent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.707" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="404dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <TextView
+            android:id="@+id/activity2Question8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8) À votre avis, combien y a-t-il de déserts en Afrique ?"
+            android:textColor="#997E74"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/activity2Question8Answer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Saisissez votre réponse" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="403dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/activity2Question6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="6) Combien de pays y a-t-il en Afrique ?"
+            android:textColor="#997E74"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Saisissez votre réponse" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="403dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/activity2Question7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="7) Le plus long fleuve du monde coule en Afrique c'est : "
+            android:textColor="#997E74"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/activity2Question7Answer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
