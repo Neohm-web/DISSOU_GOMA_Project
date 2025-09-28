@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DISSOU_GOMA_Project">
         <activity
+            android:name=".Activity2_1"
+            android:exported="false" />
+        <activity
             android:name=".Activity2"
             android:exported="false" />
         <activity
