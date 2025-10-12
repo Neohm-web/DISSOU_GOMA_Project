@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="ACTIOVITE 2: LE SAFARI DES CURIOSITES"
+        android:text="ACTIVITE 2: LE SAFARI DES CURIOSITES"
         android:textColor="#997E74"
         android:textSize="18sp"
         android:textStyle="bold"
