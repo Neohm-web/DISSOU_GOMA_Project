@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity2">
+    tools:context=".Activity2_1">
 
     <TextView
-        android:id="@+id/activityTitle2"
+        android:id="@+id/activityTitle7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="ACTIVITE 2: LE SAFARI DES CURIOSITES"
+        android:text="ACTIOVITE 2: LE SAFARI DES CURIOSITES"
         android:textColor="#997E74"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -20,80 +20,159 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="403dp"
-        android:layout_height="218dp"
-        android:layout_marginStart="5dp"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="430dp"
+        android:layout_height="514dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="5dp"
-        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activityTitle2">
+        app:layout_constraintTop_toBottomOf="@+id/activityTitle7">
 
-        <TextView
-            android:id="@+id/activity2Question4"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4) Saviez-vous ? L'Afrique est si grande qu'elle peut contenir :"
-            android:textColor="#997E74"
-            android:textSize="16sp" />
+            android:orientation="vertical">
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <RadioButton
-                android:id="@+id/activity2Question4Answer1"
+            <TextView
+                android:id="@+id/activity2Question9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="La France 20 fois" />
+                android:labelFor="@id/activity2Question9Answer"
+                android:text="9) Saviez-vous ? L'Afrique est si grande qu'elle peut contenir :"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
 
-            <RadioButton
-                android:id="@+id/activity2Question4Answer2"
+            <RadioGroup
+                android:id="@+id/activity2Question9Answer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/activity2Question9Answer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="La France 20 fois" />
+
+                <RadioButton
+                    android:id="@+id/activity2Question9Answer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="L'Europe entière" />
+
+                <RadioButton
+                    android:id="@+id/activity2Question9Answer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Les USA + la Chine + Inde réunis" />
+
+                <RadioButton
+                    android:id="@+id/activity2Question9Answer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Toute l'Europe et les USA" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/activity2Question10"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:text="10) Quel animal d'Afrique peut courir à 120 km/h ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/activity2Question10Answer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:labelFor="@id/activity2Question10">
+
+                <RadioButton
+                    android:id="@+id/activity2Question5Answer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lion" />
+
+                <RadioButton
+                    android:id="@+id/activity2Question5Answer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Guépard" />
+
+            </Spinner>
+
+            <TextView
+                android:id="@+id/activity2Question11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="L'Europe entière" />
+                android:text="11) Combien de pays y a-t-il en Afrique ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
 
-            <RadioButton
-                android:id="@+id/activity2Question4Answer3"
+            <EditText
+                android:id="@+id/activity2Question11Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Les USA + la Chine + Inde réunis" />
+                android:ems="10"
+                android:inputType="text"
+                android:text="Saisissez votre réponse" />
 
-            <RadioButton
-                android:id="@+id/activity2Question4Answer4"
+            <TextView
+                android:id="@+id/activity2Question7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Toute l'Europe et les USA" />
-        </RadioGroup>
-    </LinearLayout>
+                android:text="7) Le plus long fleuve du monde coule en Afrique c'est : "
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/activity2Question7Answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/activity2Question7" />
+
+            <TextView
+                android:id="@+id/activity2Question8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8) À votre avis, combien y a-t-il de déserts en Afrique ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/activity2Question8Answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Saisissez votre réponse" />
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
         android:layout_marginBottom="15dp"
         android:text="Précedent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="208dp"
         android:text="Suivant"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.994"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        tools:layout_editor_absoluteY="728dp" />
+
+    <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
