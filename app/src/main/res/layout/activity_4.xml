@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity4">
+
+    <TextView
+        android:id="@+id/activity4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="ACTIVITE 4: TOUR GOURMAND"
+        android:textColor="#997E74"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="479dp"
+        android:layout_height="606dp"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="75dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activity4Question19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="19) Le piment le plus fort du monde pousse en Afrique. Oseriez-vous ? "
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <Switch
+                android:id="@+id/activity4Question19Answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="Oui ou Non"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/activity4Question20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20) Votre plat africain idéal aurait quel niveau de piquant ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <RatingBar
+                android:id="@+id/activity4Question20Answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:isIndicator="false"
+                android:max="10"
+                android:progress="5" />
+
+            <TextView
+                android:id="@+id/activity4Question21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="21) Quel est votre aliment de base essentiel ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <RadioGroup
+                android:id="@+id/activity4Question21Answer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/activity4Question21Answer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Riz"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/activity4Question21Answer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gombo"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/activity4Question21Answer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Semoule"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/activity4Question21Answer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Manioc "
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/activity4Question21Answer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Farine de Maîs"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/activity4Question21Answer6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Igname"
+                    android:textSize="16sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/activity4Question22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="22) Quelle boisson est faite pour toi ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/activity4Question22Answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/activity4Question23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="23) Quel ingrédient africain te tente le plus ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/activity4ButSuivant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="30dp"
+        android:text="Suivant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity4ButPrecedent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
+
+    <Button
+        android:id="@+id/activity4ButPrecedent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:text="Précédent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4"
+        tools:layout_editor_absoluteX="40dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
