@@ -22,8 +22,8 @@
 
     <ScrollView
         android:id="@+id/scrollView4"
-        android:layout_width="479dp"
-        android:layout_height="606dp"
+        android:layout_width="470dp"
+        android:layout_height="515dp"
         tools:layout_editor_absoluteX="-1dp"
         tools:layout_editor_absoluteY="75dp">
 

@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity6">
+    tools:context=".Activity8">
 
     <TextView
-        android:id="@+id/activity6"
+        android:id="@+id/activity8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="ACTIVITE 6: Voyage dans le Temps - Histoire Moderne"
+        android:text="ACTIVITE 8: FAUNE AFRICAINE ET TOTEMS"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#795548"
@@ -23,11 +23,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView6"
-        android:layout_width="535dp"
-        android:layout_height="653dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="113dp">
+        android:id="@+id/scrollView8"
+        android:layout_width="401dp"
+        android:layout_height="571dp"
+        tools:layout_editor_absoluteY="86dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,168 +34,182 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/activity6Question29"
+                android:id="@+id/activity8Question39"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity6Question29Answer"
-                android:text="29) Nelson Mandela a passé combien d'années en prison ?"
-                android:textColor="#997E74"
-                android:textSize="16sp" />
-
-            <RadioGroup
-                android:id="@+id/activity6Question29Answer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RadioButton
-                    android:id="@+id/activity6Question29Answer1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="5 ans"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/activity6Question29Answer2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="15 ans"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/activity6Question29Answer3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="27 ans"
-                    android:textSize="16sp" />
-
-                <RadioButton
-                    android:id="@+id/activity6Question29Answer4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="35 ans"
-                    android:textSize="16sp" />
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/activity6Question30"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:labelFor="@id/activity6Question30Answer"
-                android:text="30) Quel pays africain n'a jamais été colonisé ?"
+                android:text="39) Les animaux totem en Afrique ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/activity6Question30Answer"
+                android:id="@+id/activity8Question39Answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp" />
+                tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
-                android:id="@+id/activity6Question31"
+                android:id="@+id/activity8Question40"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/scrollView6"
-                android:text="31) En quelle année la plupart des pays africains ont-ils obtenu leur indépendance ?"
-                android:textColor="#997E74"
-                android:textSize="16sp" />
-
-            <SeekBar
-                android:id="@+id/activity6Question31Answer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:max="5"
-                android:min="0"
-                android:progress="0"
-                tools:ignore="DuplicateIds" />
-
-            <TextView
-                android:id="@+id/activity6Question32"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:labelFor="@id/activity6Question32Answer"
-                android:text="32) Qui était Kwame Nkrumah ?"
+                android:text="40) Combien d'espèces d'éléphants existe-t-il en Afrique ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
             <RadioGroup
-                android:id="@+id/activity6Question32Answer"
+                android:id="@+id/activity8Question40Answer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <CheckBox
-                    android:id="@+id/activity6Question32Answer1"
+                <RadioButton
+                    android:id="@+id/activity8Question40Answer1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Premier président du Ghana"
+                    android:text="Un"
                     android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity6Question32Answer2"
+                <RadioButton
+                    android:id="@+id/activity8Question40Answer2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Roi zoulou"
+                    android:text="Deux"
                     android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity6Question32Answer3"
+                <RadioButton
+                    android:id="@+id/activity8Question40Answer3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" Écrivain nigérian"
+                    android:text="Trois"
                     android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity6Question32Answer4"
+                <RadioButton
+                    android:id="@+id/activity8Question40Answer4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Musicien malien"
-                    android:textSize="16sp" />
-
-                <CheckBox
-                    android:id="@+id/activity6Question32Answer5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Auteur du livre :The Spectre of Black Power"
+                    android:text="Quatre"
                     android:textSize="16sp" />
             </RadioGroup>
 
             <TextView
-                android:id="@+id/activity6Question33"
+                android:id="@+id/activity8Question41"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity6Question33Answer"
-                android:text="33) Quelle femme africaine a reçu le Prix Nobel de la Paix ?"
+                android:text="41) Quel animal africain est le plus dangereux pour l'homme ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
             <AutoCompleteTextView
-                android:id="@+id/activity6Question33Answer"
+                android:id="@+id/activity8Question41Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
-                android:text="AutoCompleteTextView" />
+                android:text="Sélectionnez dans la liste" />
 
+            <TextView
+                android:id="@+id/activity8Question42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="42) Les &quot;Big Five&quot; du safari africain sont... ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <RadioGroup
+                android:id="@+id/activity8Question42Answer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/activity8Question42Answer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lion"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/activity8Question42Answer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Éléphant"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/activity8Question42Answer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rhinocéros"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/activity8Question42Answer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Léopard"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/activity8Question42Answer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Buffle"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/activity8Question42Answer6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Girafe"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/activity8Question42Answer7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Zèbre"
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/activity8Question42Answer8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Guépard"
+                    android:textSize="16sp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/activity8Question43"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="43) Quel animal peut rester plusieurs jours sans boire ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <ToggleButton
+                android:id="@+id/activity8Question43Answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ToggleButton"
+                android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/activity6ButPrecedent"
+        android:id="@+id/activity8ButPrecedent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="15dp"
         android:text="Précédent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView6" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView8"
+        tools:layout_editor_absoluteX="24dp" />
 
     <Button
-        android:id="@+id/activity6ButSuivant"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="24dp"
-        android:text="Suivant"
-        app:layout_constraintStart_toEndOf="@+id/activity6ButPrecedent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView6" />
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="15dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/activity8ButPrecedent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView8" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
