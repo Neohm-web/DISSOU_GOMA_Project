@@ -40,11 +40,18 @@
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/activity9Question44Answer"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:itemCount="4" />
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imageButton6"
+                    android:layout_width="365dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/activity9Question45"
