@@ -24,8 +24,8 @@
 
     <ScrollView
         android:id="@+id/scrollView8"
-        android:layout_width="401dp"
-        android:layout_height="571dp"
+        android:layout_width="435dp"
+        android:layout_height="528dp"
         tools:layout_editor_absoluteY="86dp">
 
         <LinearLayout
@@ -112,68 +112,61 @@
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
-            <RadioGroup
-                android:id="@+id/activity8Question42Answer"
+            <CheckBox
+                android:id="@+id/activity8Question42Answer1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:text="Lion"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity8Question42Answer1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lion"
-                    android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/activity8Question42Answer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Éléphant"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity8Question42Answer2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Éléphant"
-                    android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/activity8Question42Answer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rhinocéros"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity8Question42Answer3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rhinocéros"
-                    android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/activity8Question42Answer4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Léopard"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity8Question42Answer4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Léopard"
-                    android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/activity8Question42Answer5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buffle"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity8Question42Answer5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Buffle"
-                    android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/activity8Question42Answer6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Girafe"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity8Question42Answer6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Girafe"
-                    android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/activity8Question42Answer7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Zèbre"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity8Question42Answer7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Zèbre"
-                    android:textSize="16sp" />
-
-                <CheckBox
-                    android:id="@+id/activity8Question42Answer8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Guépard"
-                    android:textSize="16sp" />
-
-            </RadioGroup>
+            <CheckBox
+                android:id="@+id/activity8Question42Answer8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guépard"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/activity8Question43"

@@ -22,11 +22,11 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="530dp"
-        android:layout_height="799dp"
+        android:layout_width="582dp"
+        android:layout_height="688dp"
         android:layout_marginTop="76dp"
         app:layout_constraintTop_toBottomOf="@+id/activity2"
-        tools:layout_editor_absoluteX="9dp">
+        tools:layout_editor_absoluteX="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -114,39 +114,33 @@
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
-            <RadioGroup
-                android:id="@+id/activity2Question12Answer"
+            <CheckBox
+                android:id="@+id/activity2Question12Answer1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:text="Le Nil"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity2Question12Answer1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Le Nil"
-                    android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/activity2Question12Answer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="L'Amazone"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity2Question12Answer2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="L'Amazone"
-                    android:textSize="16sp" />
+            <CheckBox
+                android:id="@+id/activity2Question12Answer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Le Congo"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:id="@+id/activity2Question12Answer3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Le Congo"
-                    android:textSize="16sp" />
-
-                <CheckBox
-                    android:id="@+id/activity2Question12Answer4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Le Niger"
-                    android:textSize="16sp" />
-            </RadioGroup>
+            <CheckBox
+                android:id="@+id/activity2Question12Answer4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Le Niger"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/activity2Question13"
@@ -174,7 +168,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="210dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="30dp"
         android:text="Suivant"
         app:layout_constraintEnd_toEndOf="parent"
@@ -186,7 +180,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="60dp"
         android:text="Precédent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />

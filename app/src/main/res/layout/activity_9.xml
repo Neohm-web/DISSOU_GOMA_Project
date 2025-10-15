@@ -23,8 +23,8 @@
 
     <ScrollView
         android:id="@+id/scrollView9"
-        android:layout_width="411dp"
-        android:layout_height="638dp"
+        android:layout_width="623dp"
+        android:layout_height="712dp"
         tools:layout_editor_absoluteY="93dp">
 
         <LinearLayout
@@ -42,14 +42,40 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="145dp"
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imageButton6"
-                    android:layout_width="365dp"
-                    android:layout_height="match_parent"
+                    android:id="@+id/activity9Question44Answer1"
+                    android:layout_width="174dp"
+                    android:layout_height="131dp"
                     android:layout_weight="1"
+                    android:contentDescription="Ville animée et moderne (Johannesburg, Cotonou, Nairobi)"
+                    android:tooltipText="Ville animée et moderne"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/activity9Question44Answer2"
+                    android:layout_width="138dp"
+                    android:layout_height="127dp"
+                    android:layout_weight="1"
+                    android:contentDescription="Ville historique (Ouidah, Brazzaville, Gorée)"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <ImageButton
+                    android:id="@+id/activity9Question44Answer3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="122dp"
+                    android:layout_weight="1"
+                    android:contentDescription="Ville culturelle (Dakar, Abomey, Saint-Louis)"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageButton
+                    android:id="@+id/activity9Question44Answer4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="125dp"
+                    android:layout_weight="1"
+                    android:contentDescription="Ville balnéaire (Pointe-Noire, Grand-Popo, Zanzibar)"
                     tools:srcCompat="@tools:sample/avatars" />
             </LinearLayout>
 
@@ -109,6 +135,81 @@
                 android:layout_height="wrap_content"
                 android:minHeight="48dp" />
 
+            <TextView
+                android:id="@+id/activity9Question47"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="47) Quelle ville africaine veux-tu découvrir en priorité ? "
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/activity9Question47Answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="AutoCompleteTextView" />
+
+            <TextView
+                android:id="@+id/activity9Question48"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="48) Lagos (Nigeria) est connue pour... ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/activity9Qestion48Answer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Son industrie du cinéma (Nollywood)" />
+
+            <CheckBox
+                android:id="@+id/activity9Qestion48Answer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sa musique Afrobeat" />
+
+            <CheckBox
+                android:id="@+id/activity9Qestion48Answer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ses plages" />
+
+            <CheckBox
+                android:id="@+id/activity9Qestion48Answer4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Son économie dynamique" />
+
+            <CheckBox
+                android:id="@+id/activity9Qestion48Answer5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sa gastronomie" />
+
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/activity9ButPrecedent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="60dp"
+        android:text="Précédent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView9" />
+
+    <Button
+        android:id="@+id/activity9ButSuivant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="60dp"
+        android:text="Suivant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity9ButPrecedent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView9" />
 </androidx.constraintlayout.widget.ConstraintLayout>
