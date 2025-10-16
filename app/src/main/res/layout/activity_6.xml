@@ -111,7 +111,7 @@
                 tools:ignore="DuplicateIds" />
 
             <TextView
-                android:id="@+id/activity6Question32"
+                android:id="@+id/activity6Question32Answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/activity6Question32Answer"

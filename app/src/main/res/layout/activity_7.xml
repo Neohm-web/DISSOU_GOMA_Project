@@ -195,8 +195,9 @@
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
-        android:text="Button"
+        android:text="Précédent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView7" />
 
@@ -205,7 +206,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
-        android:text="Button"
+        android:text="Suivant"
         app:layout_constraintBottom_toBottomOf="@+id/button11"
         app:layout_constraintEnd_toEndOf="@+id/scrollView7"
         app:layout_constraintTop_toTopOf="@+id/button11" />
