@@ -8,7 +8,7 @@
     tools:context=".Activity9">
 
     <TextView
-        android:id="@+id/activity"
+        android:id="@+id/activity9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -33,7 +33,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/activity9Question44"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="44) Quelle ambiance de ville préfères-tu ?"
@@ -46,7 +45,6 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/activity9Question44Answer1"
                     android:layout_width="174dp"
                     android:layout_height="131dp"
                     android:layout_weight="1"
@@ -55,7 +53,6 @@
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageButton
-                    android:id="@+id/activity9Question44Answer2"
                     android:layout_width="138dp"
                     android:layout_height="127dp"
                     android:layout_weight="1"
@@ -63,7 +60,6 @@
                     tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                 <ImageButton
-                    android:id="@+id/activity9Question44Answer3"
                     android:layout_width="wrap_content"
                     android:layout_height="122dp"
                     android:layout_weight="1"
@@ -71,7 +67,6 @@
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageButton
-                    android:id="@+id/activity9Question44Answer4"
                     android:layout_width="wrap_content"
                     android:layout_height="125dp"
                     android:layout_weight="1"
@@ -80,7 +75,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/activity9Question45"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="45) Quelle est la capitale de l'Afrique du Sud ?"
@@ -88,33 +82,28 @@
                 android:textSize="16sp" />
 
             <RadioGroup
-                android:id="@+id/activity9Question45Answer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <RadioButton
-                    android:id="@+id/activity9Question45Answer1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Le Cap"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity9Question45Answer2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Johannesburg"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity9Question45Answer3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Pretoria"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity9Question45Answer4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Les trois"
@@ -122,7 +111,6 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/activity9Question46"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="46) Marrakech se trouve dans quel pays ?"
@@ -130,13 +118,11 @@
                 android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/activity9Question46Answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp" />
 
             <TextView
-                android:id="@+id/activity9Question47"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="47) Quelle ville africaine veux-tu découvrir en priorité ? "
@@ -144,14 +130,12 @@
                 android:textSize="16sp" />
 
             <AutoCompleteTextView
-                android:id="@+id/activity9Question47Answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:text="AutoCompleteTextView" />
 
             <TextView
-                android:id="@+id/activity9Question48"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="48) Lagos (Nigeria) est connue pour... ?"
@@ -159,31 +143,26 @@
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity9Qestion48Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son industrie du cinéma (Nollywood)" />
 
             <CheckBox
-                android:id="@+id/activity9Qestion48Answer2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sa musique Afrobeat" />
 
             <CheckBox
-                android:id="@+id/activity9Qestion48Answer3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ses plages" />
 
             <CheckBox
-                android:id="@+id/activity9Qestion48Answer4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son économie dynamique" />
 
             <CheckBox
-                android:id="@+id/activity9Qestion48Answer5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sa gastronomie" />
@@ -192,22 +171,22 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/activity9ButPrecedent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="337dp"
         android:text="Précédent"
+        app:layout_constraintEnd_toStartOf="@+id/button15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView9" />
 
     <Button
-        android:id="@+id/activity9ButSuivant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="40dp"
         android:text="Suivant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/activity9ButPrecedent"

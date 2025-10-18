@@ -34,7 +34,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/activity8Question39"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="39) Les animaux totem en Afrique ?"
@@ -42,13 +41,11 @@
                 android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/activity8Question39Answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="TouchTargetSizeCheck" />
 
             <TextView
-                android:id="@+id/activity8Question40"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="40) Combien d'espèces d'éléphants existe-t-il en Afrique ?"
@@ -56,33 +53,28 @@
                 android:textSize="16sp" />
 
             <RadioGroup
-                android:id="@+id/activity8Question40Answer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <RadioButton
-                    android:id="@+id/activity8Question40Answer1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Un"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity8Question40Answer2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Deux"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity8Question40Answer3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Trois"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity8Question40Answer4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Quatre"
@@ -90,7 +82,6 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/activity8Question41"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="41) Quel animal africain est le plus dangereux pour l'homme ?"
@@ -98,14 +89,12 @@
                 android:textSize="16sp" />
 
             <AutoCompleteTextView
-                android:id="@+id/activity8Question41Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 android:text="Sélectionnez dans la liste" />
 
             <TextView
-                android:id="@+id/activity8Question42"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="42) Les &quot;Big Five&quot; du safari africain sont... ?"
@@ -113,63 +102,54 @@
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity8Question42Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Lion"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity8Question42Answer2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Éléphant"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity8Question42Answer3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Rhinocéros"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity8Question42Answer4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Léopard"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity8Question42Answer5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Buffle"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity8Question42Answer6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Girafe"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity8Question42Answer7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Zèbre"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity8Question42Answer8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Guépard"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/activity8Question43"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="43) Quel animal peut rester plusieurs jours sans boire ?"
@@ -177,7 +157,6 @@
                 android:textSize="16sp" />
 
             <ToggleButton
-                android:id="@+id/activity8Question43Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ToggleButton"
@@ -187,22 +166,23 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/activity8ButPrecedent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="70dp"
         android:text="Précédent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView8"
-        tools:layout_editor_absoluteX="24dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView8" />
 
     <Button
-        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="40dp"
         android:text="Button"
-        app:layout_constraintStart_toEndOf="@+id/activity8ButPrecedent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/scrollView8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,7 +35,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/activity2Question9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/activity2Question9Answer"
@@ -44,33 +43,28 @@
                 android:textSize="16sp" />
 
             <RadioGroup
-                android:id="@+id/activity2Question9Answer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <RadioButton
-                    android:id="@+id/activity2Question9Answer1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="La France 20 fois"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity2Question9Answer2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="L'Europe entière"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity2Question9Answer3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Les USA + Chine + Inde réunis"
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/activity2Question9Answer4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Toute l'Europe + les USA"
@@ -78,7 +72,6 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/activity2Question10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/activity2Question10Answer1"
@@ -87,13 +80,11 @@
                 android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/activity2Question10Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp" />
 
             <TextView
-                android:id="@+id/activity2Question11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/activity2Question11Answer1"
@@ -102,12 +93,10 @@
                 android:textSize="16sp" />
 
             <SeekBar
-                android:id="@+id/activity2Question11Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/activity2Question12Answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/activity2Question12Answer"
@@ -116,35 +105,30 @@
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity2Question12Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Le Nil"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity2Question12Answer2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="L'Amazone"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity2Question12Answer3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Le Congo"
                 android:textSize="16sp" />
 
             <CheckBox
-                android:id="@+id/activity2Question12Answer4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Le Niger"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/activity2Question13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:labelFor="@id/activity2Question13Answer1"
@@ -153,7 +137,6 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/activity2Question13Answer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -167,19 +150,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="54dp"
         android:text="Suivant"
-        app:layout_constraintBottom_toBottomOf="@+id/activity2ButPrecedent"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
-        app:layout_constraintTop_toTopOf="@+id/activity2ButPrecedent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button13"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
     <Button
-        android:id="@+id/activity2ButPrecedent"
+        android:id="@+id/button13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="80dp"
         android:text="Precédent"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
