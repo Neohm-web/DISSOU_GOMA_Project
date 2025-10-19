@@ -25,8 +25,10 @@
         android:id="@+id/constraintLayout"
         android:layout_width="413dp"
         android:layout_height="535dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="66dp">
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
@@ -52,9 +54,10 @@
             android:id="@+id/spinner4"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView15"
-            app:layout_constraintTop_toTopOf="@+id/textView15"
-            tools:layout_editor_absoluteX="108dp" />
+            app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+            app:layout_constraintTop_toTopOf="@+id/textView15" />
 
         <TextView
             android:id="@+id/textView16"
@@ -69,6 +72,7 @@
             android:id="@+id/spinner5"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView16"
             app:layout_constraintEnd_toEndOf="@+id/spinner4"
             app:layout_constraintStart_toStartOf="@+id/spinner4"
@@ -85,10 +89,10 @@
 
         <RadioGroup
             android:id="@+id/radioGroup"
-            android:layout_width="201dp"
-            android:layout_height="85dp"
-            tools:layout_editor_absoluteX="108dp"
-            tools:layout_editor_absoluteY="259dp">
+            android:layout_width="226dp"
+            android:layout_height="114dp"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toTopOf="@+id/textView17">
 
             <RadioButton
                 android:id="@+id/radioButton5"
@@ -100,6 +104,7 @@
                 android:id="@+id/radioButton6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
                 android:text="une femme" />
         </RadioGroup>
 
@@ -118,6 +123,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            android:minHeight="48dp"
             android:text="Name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/radioGroup"
@@ -147,13 +153,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/button7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button7" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="589dp">
-
-    </com.google.android.material.chip.ChipGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

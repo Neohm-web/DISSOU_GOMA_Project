@@ -2,10 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -19,11 +21,12 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="407dp"
+        android:layout_width="wrap_content"
         android:layout_height="522dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="80dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,7 +80,6 @@
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor=""
                 android:text="15)Parmi ces langues, lesquelles sont africaines ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -128,7 +130,7 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
             </ListView>
 
@@ -136,7 +138,8 @@
                 android:id="@+id/textView18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="17)Quelles sont les religions qu'on retrouve en Afrique ? " />
+                android:text="17)Quelles sont les religions qu'on retrouve en Afrique ? "
+                android:textColor="#997E74" />
 
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="match_parent"
@@ -183,7 +186,8 @@
                 android:id="@+id/textView14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="18)Quelle danse africaine connais-tu ou aimerais-tu apprendre ? " />
+                android:text="18)Quelle danse africaine connais-tu ou aimerais-tu apprendre ? "
+                android:textColor="#997E74" />
 
             <Spinner
                 android:id="@+id/spinner3"

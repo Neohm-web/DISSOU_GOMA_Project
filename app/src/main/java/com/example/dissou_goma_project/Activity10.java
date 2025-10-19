@@ -1,8 +1,6 @@
 package com.example.dissou_goma_project;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,27 +8,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Activity5 extends AppCompatActivity {
+public class Activity10 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_5);
+        setContentView(R.layout.activity_10);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-        });
-        Button button9 = findViewById(R.id.button9);
-        button9.setOnClickListener(v -> {
-            Intent intent11 = new Intent(Activity5.this, Activity6.class);
-            startActivity(intent11);
-        });
-        Button button4 = findViewById(R.id.button4);
-        button4.setOnClickListener(v -> {
-            Intent intent12 = new Intent(Activity5.this, Activity4.class);
-            startActivity(intent12);
         });
     }
 }
