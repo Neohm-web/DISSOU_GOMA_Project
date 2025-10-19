@@ -37,7 +37,6 @@
                 android:id="@+id/textView19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="24)Quel âge ont les pyramides d'Égypte ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -53,7 +52,6 @@
                 android:id="@+id/textView20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="25)Qui a été surnommée la denière pharaonne ? "
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -86,7 +84,6 @@
                 android:id="@+id/textView21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="26)Combien de pyramides compte l'Égypte ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -102,7 +99,6 @@
                 android:id="@+id/textView22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="27)Quel animal était sacré dans l'Égypte ancienne ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -147,7 +143,6 @@
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="28)Le Sphinx de Gizeh représente un corps de lion avec une tête de... ? "
                 android:textColor="#997E74"
                 android:textSize="16sp" />

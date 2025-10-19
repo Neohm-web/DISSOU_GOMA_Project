@@ -33,7 +33,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="14)Quels sont les sports les plus populaires en Afrique ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -78,7 +77,7 @@
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
+                android:labelFor=""
                 android:text="15)Parmi ces langues, lesquelles sont africaines ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -123,7 +122,6 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="16)Quelles musiques ont des racines africaines ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />

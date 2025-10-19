@@ -36,7 +36,6 @@
                 android:id="@+id/textView24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="34)Si vous pouviez visiter une merveille africaine, ce serait... ? "
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -51,7 +50,6 @@
                 android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="35)Quel paysage d'Afrique t'attire le plus ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -100,7 +98,6 @@
                 android:id="@+id/textView26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="36)Le Kilimandjaro est haut de combien de mètres ? "
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -116,7 +113,6 @@
                 android:id="@+id/textView27"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="37)Quel est le plus grand désert chaud du monde ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
@@ -154,7 +150,6 @@
                 android:id="@+id/textView28"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/activity2Question9Answer"
                 android:text="38)Les chutes Victoria se trouvent entre dans quels pays ? "
                 android:textColor="#997E74"
                 android:textSize="16sp" />
