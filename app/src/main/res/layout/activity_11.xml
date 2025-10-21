@@ -50,7 +50,7 @@
                 android:textSize="16sp" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/animalSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp" />
@@ -77,6 +77,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/seekBarValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Note : 0"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -165,7 +174,8 @@
             <Spinner
                 android:id="@+id/spinner2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:minHeight="48dp" />
         </LinearLayout>
     </ScrollView>
 
