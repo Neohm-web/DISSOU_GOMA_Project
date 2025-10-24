@@ -90,7 +90,10 @@
                 android:id="@+id/toggleButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ewe" />
+                android:text="Ewe"
+
+                />
+
 
             <ToggleButton
                 android:id="@+id/toggleButton2"
@@ -131,6 +134,7 @@
                 android:textSize="16sp" />
 
             <ListView
+                android:id="@+id/listViewMusics"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -144,45 +148,67 @@
                 android:textColor="#997E74" />
 
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                app:singleSelection="false"
+                app:selectionRequired="false">
+
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Christianisme" />
+                    android:text="Christianisme"
+                    android:checkable="true" />
+
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Vaudou" />
+                    android:text="Vaudou"
+                    android:checkable="true" />
+
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Khémétisme" />
+                    android:text="Khémétisme"
+                    android:checkable="true" />
+
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Islam" />
+                    android:text="Islam"
+                    android:checkable="true" />
+
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Judaïsme" />
+                    android:text="Judaïsme"
+                    android:checkable="true" />
+
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Animisme" />
+                    android:text="Animisme"
+                    android:checkable="true" />
+
+
             </com.google.android.material.chip.ChipGroup>
+
+
+
+
+
 
             <TextView
                 android:id="@+id/textView14"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,35 +8,42 @@
     android:layout_height="match_parent"
     tools:context=".Activity9">
 
+
+    <!-- Titre principal -->
     <TextView
-        android:id="@+id/activity9"
+        android:id="@+id/textViewTitle9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="ACTIVITE 9: Villes et Destinations"
+        android:text="ACTIVITÉ 9 : VILLES ET DESTINATIONS"
         android:textAllCaps="true"
         android:textColor="#997E74"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <!-- Scroll principal -->
     <ScrollView
         android:id="@+id/scrollView9"
-        android:layout_width="wrap_content"
-        android:layout_height="618dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle9"
+        app:layout_constraintBottom_toTopOf="@id/button16"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
+
+            <!-- Q44 : Ambiance de ville -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,41 +51,52 @@
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="145dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
 
                 <ImageButton
-                    android:layout_width="174dp"
-                    android:layout_height="131dp"
+                    android:id="@+id/imgVilleModerne"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
                     android:layout_weight="1"
-                    android:contentDescription="Ville animée et moderne (Johannesburg, Cotonou, Nairobi)"
-                    android:tooltipText="Ville animée et moderne"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:contentDescription="Ville animée et moderne"
+                    app:srcCompat="@drawable/ville_moderne" />
+
 
                 <ImageButton
-                    android:layout_width="138dp"
-                    android:layout_height="127dp"
+                    android:id="@+id/imgVilleHistorique"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
                     android:layout_weight="1"
-                    android:contentDescription="Ville historique (Ouidah, Brazzaville, Gorée)"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    android:contentDescription="Ville historique"
+                    app:srcCompat="@drawable/ville_historique" />
+
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="122dp"
+                    android:id="@+id/imgVilleCulturelle"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
                     android:layout_weight="1"
-                    android:contentDescription="Ville culturelle (Dakar, Abomey, Saint-Louis)"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:contentDescription="Ville culturelle"
+                    app:srcCompat="@drawable/ville_culturelle" />
+
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="125dp"
+                    android:id="@+id/imgVilleBalneaire"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
                     android:layout_weight="1"
-                    android:contentDescription="Ville balnéaire (Pointe-Noire, Grand-Popo, Zanzibar)"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:contentDescription="Ville balnéaire"
+                    app:srcCompat="@drawable/ville_balneaire" />
             </LinearLayout>
 
+
+            <!-- Q45 : Capitale Afrique du Sud -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,35 +104,43 @@
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
+
             <RadioGroup
+                android:id="@+id/radioGroupCapitale"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
+
 
                 <RadioButton
+                    android:id="@+id/rbCap"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Le Cap"
-                    android:textSize="16sp" />
+                    android:text="Le Cap" />
+
 
                 <RadioButton
+                    android:id="@+id/rbJohannesburg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Johannesburg"
-                    android:textSize="16sp" />
+                    android:text="Johannesburg" />
+
 
                 <RadioButton
+                    android:id="@+id/rbPretoria"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pretoria"
-                    android:textSize="16sp" />
+                    android:text="Pretoria" />
+
 
                 <RadioButton
+                    android:id="@+id/rbTrois"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Les trois"
-                    android:textSize="16sp" />
+                    android:text="Les trois !" />
             </RadioGroup>
 
+
+            <!-- Q46 : Marrakech -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,75 +148,72 @@
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp" />
 
+            <Spinner
+                android:id="@+id/spinnerMarrakech"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <!-- Q47 : Ville à découvrir -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="47) Quelle ville africaine veux-tu découvrir en priorité ? "
+                android:text="47) Quelle ville africaine veux-tu découvrir en priorité ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
+
 
             <AutoCompleteTextView
+                android:id="@+id/autoVille"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="AutoCompleteTextView" />
+                android:hint="Saisis ou choisis une ville"
+                android:minHeight="48dp" />
 
+
+            <!-- Q48 : Lagos -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="48) Lagos (Nigeria) est connue pour... ?"
+                android:text="48) Lagos (Nigeria) est connue pour... (sélection multiple)"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son industrie du cinéma (Nollywood)" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sa musique Afrobeat" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ses plages" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son économie dynamique" />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sa gastronomie" />
-
+            <CheckBox android:id="@+id/cbNollywood" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Son industrie du cinéma (Nollywood)" />
+            <CheckBox android:id="@+id/cbAfrobeat" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sa musique Afrobeat" />
+            <CheckBox android:id="@+id/cbPlages" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ses plages" />
+            <CheckBox android:id="@+id/cbEconomie" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Son économie dynamique" />
+            <CheckBox android:id="@+id/cbGastronomie" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sa gastronomie" />
         </LinearLayout>
     </ScrollView>
 
+
+    <!-- Boutons navigation -->
     <Button
         android:id="@+id/button16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="Précédent"
-        app:layout_constraintStart_toStartOf="@+id/scrollView9"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView9" />
+        app:layout_constraintTop_toBottomOf="@id/scrollView9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp" />
+
 
     <Button
         android:id="@+id/button23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
         android:text="Suivant"
-        app:layout_constraintBottom_toBottomOf="@+id/button16"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView9"
-        app:layout_constraintTop_toTopOf="@+id/button16" />
+        app:layout_constraintBaseline_toBaselineOf="@id/button16"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+

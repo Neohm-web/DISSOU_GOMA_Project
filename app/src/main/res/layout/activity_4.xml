@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,72 +8,96 @@
     android:layout_height="match_parent"
     tools:context=".Activity4">
 
+
+    <!-- Titre -->
     <TextView
         android:id="@+id/activity4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="ACTIVITE 4: TOUR GOURMAND"
+        android:layout_marginTop="24dp"
+        android:text="ACTIVITÉ 4 : TOUR GOURMAND"
         android:textColor="#997E74"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+
+    <!-- ScrollView principal -->
     <ScrollView
         android:id="@+id/scrollView4"
-        android:layout_width="wrap_content"
-        android:layout_height="496dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/activity4"
+        app:layout_constraintBottom_toTopOf="@+id/navigationLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
+
+            <!-- Question 19 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="19) Le piment le plus fort du monde pousse en Afrique. Oseriez-vous ? "
+                android:text="19) Le piment le plus fort du monde pousse en Afrique. Oseriez-vous ?"
                 android:textColor="#997E74"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
 
             <Switch
+                android:id="@+id/switch1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:minHeight="48dp"
                 android:text="Oui ou Non"
                 android:textSize="16sp" />
 
+
+            <!-- Question 20 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="20) Votre plat africain idéal aurait quel niveau de piquant ?"
                 android:textColor="#997E74"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
 
             <RatingBar
-                android:layout_width="match_parent"
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:isIndicator="false"
-                android:max="10"
-                android:progress="5" />
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="1.0"
+                android:layout_marginBottom="16dp"/>
 
+
+            <!-- Question 21 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="21) Quel est votre aliment de base essentiel ?"
                 android:textColor="#997E74"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
 
             <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
 
                 <RadioButton
                     android:layout_width="match_parent"
@@ -80,11 +105,13 @@
                     android:text="Riz"
                     android:textSize="16sp" />
 
+
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Gombo"
                     android:textSize="16sp" />
+
 
                 <RadioButton
                     android:layout_width="match_parent"
@@ -92,106 +119,167 @@
                     android:text="Semoule"
                     android:textSize="16sp" />
 
-                <RadioButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Manioc "
-                    android:textSize="16sp" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Farine de Maîs"
+                    android:text="Manioc"
                     android:textSize="16sp" />
+
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Farine de maïs"
+                    android:textSize="16sp" />
+
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Igname"
                     android:textSize="16sp" />
-
             </RadioGroup>
 
+
+            <!-- Question 22 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="22) Quelle boisson est faite pour toi ?"
                 android:textColor="#997E74"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
 
             <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:layout_marginBottom="16dp"/>
 
+
+            <!-- Question 23 -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="23) Quel ingrédient africain te tente le plus ?"
                 android:textColor="#997E74"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
 
-            <LinearLayout
+
+            <!-- Images défilables -->
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
 
-                <ImageButton
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="Fonio"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:orientation="horizontal">
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="Moringa"
-                    tools:srcCompat="@tools:sample/avatars" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="Beurre de karité"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton1"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/fonio"
+                        android:contentDescription="Fonio" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="Poivre de Guinée"
-                    tools:srcCompat="@tools:sample/avatars" />
 
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="Tamarin"
-                    tools:srcCompat="@tools:sample/avatars" />
-            </LinearLayout>
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/moringa"
+                        android:contentDescription="Moringa" />
+
+
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/beurre_de_karite"
+                        android:contentDescription="Beurre de karité" />
+
+
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton4"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/poivre_de_guinee"
+                        android:contentDescription="Poivre de Guinée" />
+
+
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton5"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tamarin"
+                        android:contentDescription="Tamarin" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
 
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Suivant"
-        app:layout_constraintBottom_toBottomOf="@+id/button10"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintTop_toTopOf="@+id/button10" />
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="wrap_content"
+    <!-- Zone navigation -->
+    <LinearLayout
+        android:id="@+id/navigationLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:text="Précédent"
-        app:layout_constraintStart_toStartOf="@+id/scrollView4"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4">
+
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Précédent" />
+
+
+        <Space
+            android:layout_width="32dp"
+            android:layout_height="match_parent" />
+
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suivant" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+

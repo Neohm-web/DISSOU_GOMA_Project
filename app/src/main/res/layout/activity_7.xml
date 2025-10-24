@@ -57,45 +57,57 @@
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
-            <LinearLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="85dp"
-                    android:layout_height="match_parent"
-                    tools:srcCompat="@tools:sample/avatars[0]" />
-
-                <ImageButton
-                    android:id="@+id/imageButton9"
-                    android:layout_width="125dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-                <ImageButton
-                    android:id="@+id/imageButton7"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/imageButton8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    <ImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:src="@drawable/plage"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Plage" />
 
-                <ImageButton
-                    android:id="@+id/imageButton10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:srcCompat="@tools:sample/avatars" />
-            </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/imageButton9"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:src="@drawable/savane"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Savane" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton7"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:src="@drawable/foret"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Forêt" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton8"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:src="@drawable/montagne"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Montagne" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton10"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:src="@drawable/desert"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Désert" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
 
             <TextView
                 android:id="@+id/textView26"
@@ -121,10 +133,12 @@
                 android:textSize="16sp" />
 
             <RadioGroup
+                android:id="@+id/radioGroup1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <RadioButton
+
+            <RadioButton
                     android:id="@+id/radioButton12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -153,7 +167,7 @@
                 android:id="@+id/textView28"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="38)Les chutes Victoria se trouvent entre dans quels pays ? "
+                android:text="38)Les chutes Victoria se trouvent entre quels pays ? "
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 

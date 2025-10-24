@@ -45,6 +45,7 @@
                 android:textSize="16sp" />
 
             <RadioGroup
+                android:id="@+id/radioGroupMandela"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -81,6 +82,7 @@
                 android:textSize="16sp" />
 
             <Spinner
+                android:id="@+id/spinnerPays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp" />
@@ -93,7 +95,17 @@
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
+            <TextView
+                android:id="@+id/textViewSeekValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Décennie : 1960"
+                android:textColor="#997E74"
+                android:textSize="16sp"
+                android:paddingTop="8dp" />
+
             <SeekBar
+                android:id="@+id/seekBarIndep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:max="5"
@@ -109,30 +121,35 @@
                 android:textSize="16sp" />
 
             <CheckBox
+                android:id="@+id/checkBoxGhana"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Premier président du Ghana"
                 android:textSize="16sp" />
 
             <CheckBox
+                android:id="@+id/checkBoxZoulou"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Roi zoulou"
                 android:textSize="16sp" />
 
             <CheckBox
+                android:id="@+id/checkBoxEcrivain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=" Écrivain nigérian"
                 android:textSize="16sp" />
 
             <CheckBox
+                android:id="@+id/checkBoxMusicien"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Musicien malien"
                 android:textSize="16sp" />
 
             <CheckBox
+                android:id="@+id/checkBoxAuteur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Auteur du livre :The Spectre of Black Power"
@@ -141,15 +158,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:labelFor="@id/autoCompleteFemme"
                 android:text="33) Quelle femme africaine a reçu le Prix Nobel de la Paix ?"
                 android:textColor="#997E74"
                 android:textSize="16sp" />
 
             <AutoCompleteTextView
+                android:id="@+id/autoCompleteFemme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:text="AutoCompleteTextView" />
+                android:minHeight="48dp" />
 
 
         </LinearLayout>
