@@ -169,6 +169,13 @@
                 android:textSize="16sp"
                 android:layout_marginBottom="8dp"/>
 
+            <ImageView
+                android:id="@+id/selectedIngredientImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                android:contentDescription="Image de l'ingrédient sélectionné"/>
 
             <!-- Images défilables -->
             <HorizontalScrollView

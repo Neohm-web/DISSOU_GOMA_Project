@@ -24,6 +24,10 @@ public class Activity3 extends AppCompatActivity {
 
     private ListView listViewMusics;
     private Spinner spinner3;
+    private boolean auMoinsUneLangue = false;
+    private boolean auMoinsUnStyleMusical = false;
+    private boolean auMoinsUnChip = false;
+    private boolean danseChoisie = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +41,18 @@ public class Activity3 extends AppCompatActivity {
             return insets;
         });
 
-        // Boutons navigation
-        Button button6 = findViewById(R.id.button6);
-        button6.setOnClickListener(v -> {
-            Intent intent7 = new Intent(Activity3.this, Activity4.class);
-            startActivity(intent7);
-        });
-        Button button5 = findViewById(R.id.button5);
-        button5.setOnClickListener(v -> {
-            Intent intent8 = new Intent(Activity3.this, Activity2.class);
-            startActivity(intent8);
+        // --- Boutons navigation ---
+        Button buttonSuivant = findViewById(R.id.button6);
+        Button buttonPrecedent = findViewById(R.id.button5);
+
+        // Retour
+        buttonPrecedent.setOnClickListener(v -> {
+            Toast.makeText(this, "⬅️ Retour à l’activité précédente", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Activity3.this, Activity2.class);
+            startActivity(intent);
         });
 
-        // ToggleButtons - assurer que le texte est visible
+        // --- TOGGLE BUTTONS : langues ---
         int[] toggleIds = {R.id.toggleButton, R.id.toggleButton2, R.id.toggleButton3,
                 R.id.toggleButton4, R.id.toggleButton5, R.id.toggleButton6};
         String[] toggleTexts = {"Ewe", "Lingala", "Anglais", "Français", "Arabe", "Swahili"};
@@ -59,85 +62,142 @@ public class Activity3 extends AppCompatActivity {
             toggle.setTextOn(toggleTexts[i]);
             toggle.setTextOff(toggleTexts[i]);
             toggle.setChecked(false);
+            toggle.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
 
-            // --- Couleur selon la langue ---
             toggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 String text = buttonView.getText().toString();
-
                 if (isChecked) {
-                    // Si activé → on change la couleur selon la langue
-                    if (text.equals("Ewe") || text.equals("Lingala") || text.equals("Swahili")) {
-                        buttonView.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-                    } else {
-                        buttonView.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-                    }
+                    buttonView.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
+                    Toast.makeText(Activity3.this, "✅ Langue sélectionnée : " + text, Toast.LENGTH_SHORT).show();
+                    auMoinsUneLangue = true;
                 } else {
-                    // Si désactivé → on remet la couleur par défaut
                     buttonView.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+                    Toast.makeText(Activity3.this, "❌ Langue désélectionnée : " + text, Toast.LENGTH_SHORT).show();
+
+                    // Vérifie s’il reste une langue cochée
+                    boolean encoreUne = false;
+                    for (int id : toggleIds) {
+                        ToggleButton t = findViewById(id);
+                        if (t.isChecked()) {
+                            encoreUne = true;
+                            break;
+                        }
+                    }
+                    auMoinsUneLangue = encoreUne;
                 }
             });
         }
 
-        // ListView musics
+        // --- LISTVIEW : styles de musique ---
         listViewMusics = findViewById(R.id.listViewMusics);
         String[] musics = {"Blues", "Jazz", "Reggae", "Salsa", "Hip-hop", "Rock"};
         ArrayAdapter<String> adapterMusics = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_multiple_choice,
-                musics);
+                android.R.layout.simple_list_item_multiple_choice, musics);
         listViewMusics.setAdapter(adapterMusics);
         listViewMusics.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
-        // Ajuster la hauteur ListView pour afficher tous les éléments
         setListViewHeightBasedOnChildren(listViewMusics);
 
-        // Spinner danses africaines
+        listViewMusics.setOnItemClickListener((parent, view, position, id) -> {
+            String choix = musics[position];
+            if (listViewMusics.isItemChecked(position)) {
+                Toast.makeText(this, "🎶 Style sélectionné : " + choix, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "🚫 Style retiré : " + choix, Toast.LENGTH_SHORT).show();
+            }
+
+            // Vérifie s’il y a au moins un élément sélectionné
+            auMoinsUnStyleMusical = false;
+            for (int i = 0; i < musics.length; i++) {
+                if (listViewMusics.isItemChecked(i)) {
+                    auMoinsUnStyleMusical = true;
+                    break;
+                }
+            }
+        });
+
+        // --- SPINNER : danses africaines ---
         spinner3 = findViewById(R.id.spinner3);
         String[] dances = {"Coupé-décalé", "Ndombolo", "Azonto", "Gwara Gwara", "Kizomba", "Aucune mais je suis curieux !"};
-        ArrayAdapter<String> adapterDances = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item,
-                dances);
+        ArrayAdapter<String> adapterDances = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dances);
         adapterDances.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapterDances);
 
+        spinner3.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
+                danseChoisie = true;
+                String choix = dances[position];
+                Toast.makeText(Activity3.this, "💃 Danse choisie : " + choix, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(android.widget.AdapterView<?> parent) {
+                danseChoisie = false;
+            }
+        });
+
+        // --- CHIPGROUP : religions ---
         ChipGroup chipGroup = findViewById(R.id.chipGroup);
         if (chipGroup != null) {
             for (int i = 0; i < chipGroup.getChildCount(); i++) {
                 View v = chipGroup.getChildAt(i);
                 if (v instanceof Chip) {
                     Chip chip = (Chip) v;
-
-                    // Couleur initiale
-                    if (chip.isChecked()) {
-                        chip.setChipBackgroundColorResource(R.color.chip_checked);
-                        chip.setTextColor(getResources().getColor(R.color.text_light));
-                    } else {
-                        chip.setChipBackgroundColorResource(R.color.chip_unchecked);
-                        chip.setTextColor(getResources().getColor(R.color.text_dark));
-                    }
-
-                    // Nouveau comportement : sélection / désélection naturelle
                     chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                        String religion = chip.getText().toString();
                         if (isChecked) {
-                            chip.setChipBackgroundColorResource(R.color.chip_checked);
-                            chip.setTextColor(getResources().getColor(R.color.text_light));
+                            Toast.makeText(Activity3.this, "🙏 Religion sélectionnée : " + religion, Toast.LENGTH_SHORT).show();
                         } else {
-                            chip.setChipBackgroundColorResource(R.color.chip_unchecked);
-                            chip.setTextColor(getResources().getColor(R.color.text_dark));
+                            Toast.makeText(Activity3.this, "❌ Religion retirée : " + religion, Toast.LENGTH_SHORT).show();
+                        }
+
+                        // Vérifie s’il reste au moins un chip sélectionné
+                        auMoinsUnChip = false;
+                        for (int j = 0; j < chipGroup.getChildCount(); j++) {
+                            Chip c = (Chip) chipGroup.getChildAt(j);
+                            if (c.isChecked()) {
+                                auMoinsUnChip = true;
+                                break;
+                            }
                         }
                     });
                 }
             }
         }
 
+        // --- Bouton SUIVANT avec vérification avant de passer ---
+        buttonSuivant.setOnClickListener(v -> {
+            if (!auMoinsUneLangue) {
+                Toast.makeText(this, "❗Veuillez sélectionner au moins une langue.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (!auMoinsUnStyleMusical) {
+                Toast.makeText(this, "❗Veuillez choisir au moins un style musical.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (!auMoinsUnChip) {
+                Toast.makeText(this, "❗Veuillez cocher au moins une religion.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (!danseChoisie) {
+                Toast.makeText(this, "❗Veuillez choisir une danse africaine.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Toast.makeText(this, "✅ Super ! Passage à la suite 🎉", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Activity3.this, Activity4.class);
+            startActivity(intent);
+        });
     }
 
-
-    // Méthode pour ajuster la hauteur ListView en fonction des items
+    // Méthode pour ajuster la hauteur ListView
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
-        if (adapter == null) {
-            return;
-        }
+        if (adapter == null) return;
+
         int totalHeight = 0;
         for (int i = 0; i < adapter.getCount(); i++) {
             View listItem = adapter.getView(i, null, listView);

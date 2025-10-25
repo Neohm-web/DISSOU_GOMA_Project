@@ -10,6 +10,14 @@
 
 
     <!-- Titre principal -->
+
+
+    <!-- Scroll principal -->
+
+
+    <!-- Boutons navigation -->
+
+
     <TextView
         android:id="@+id/textViewTitle9"
         android:layout_width="wrap_content"
@@ -24,16 +32,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Suivant"
+        app:layout_constraintBaseline_toBaselineOf="@id/button16"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Scroll principal -->
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Précédent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView9" />
+
     <ScrollView
         android:id="@+id/scrollView9"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle9"
         app:layout_constraintBottom_toTopOf="@id/button16"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle9">
 
 
         <LinearLayout
@@ -55,8 +80,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
 
                 <ImageButton
@@ -64,35 +89,53 @@
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="true"
                     android:contentDescription="Ville animée et moderne"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ville_moderne" />
-
 
                 <ImageButton
                     android:id="@+id/imgVilleHistorique"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="true"
                     android:contentDescription="Ville historique"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ville_historique" />
-
 
                 <ImageButton
                     android:id="@+id/imgVilleCulturelle"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="true"
                     android:contentDescription="Ville culturelle"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ville_culturelle" />
-
 
                 <ImageButton
                     android:id="@+id/imgVilleBalneaire"
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="true"
                     android:contentDescription="Ville balnéaire"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/ville_balneaire" />
+
             </LinearLayout>
 
 
@@ -181,35 +224,38 @@
                 android:textSize="16sp" />
 
 
-            <CheckBox android:id="@+id/cbNollywood" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Son industrie du cinéma (Nollywood)" />
-            <CheckBox android:id="@+id/cbAfrobeat" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sa musique Afrobeat" />
-            <CheckBox android:id="@+id/cbPlages" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ses plages" />
-            <CheckBox android:id="@+id/cbEconomie" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Son économie dynamique" />
-            <CheckBox android:id="@+id/cbGastronomie" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sa gastronomie" />
+            <CheckBox
+                android:id="@+id/cbNollywood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Son industrie du cinéma (Nollywood)" />
+
+            <CheckBox
+                android:id="@+id/cbAfrobeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sa musique Afrobeat" />
+
+            <CheckBox
+                android:id="@+id/cbPlages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ses plages" />
+
+            <CheckBox
+                android:id="@+id/cbEconomie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Son économie dynamique" />
+
+            <CheckBox
+                android:id="@+id/cbGastronomie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sa gastronomie" />
         </LinearLayout>
     </ScrollView>
 
-
-    <!-- Boutons navigation -->
-    <Button
-        android:id="@+id/button16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Précédent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="16dp" />
-
-
-    <Button
-        android:id="@+id/button23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Suivant"
-        app:layout_constraintBaseline_toBaselineOf="@id/button16"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

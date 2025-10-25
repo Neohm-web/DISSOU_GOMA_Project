@@ -122,33 +122,15 @@ public class Activity9 extends AppCompatActivity {
         // === Bouton "Suivant" ===
         Button buttonSuivant = findViewById(R.id.button23);
         buttonSuivant.setOnClickListener(v -> {
-            String capitale = "";
-            int selectedId = radioGroupCapitale.getCheckedRadioButtonId();
-            if (selectedId != -1) {
-                RadioButton rb = findViewById(selectedId);
-                capitale = rb.getText().toString();
-            }
 
-            String paysMarrakech = spinnerMarrakech.getSelectedItem().toString();
-            String villeChoisie = autoVille.getText().toString();
+            // Lancer Activity10 (ne récupère qu'une donnée de Activity1)
+            Intent intent32 = new Intent(Activity9.this, Activity10.class);
+            startActivity(intent32);
 
-            StringBuilder lagosConnuePour = new StringBuilder();
-            if (cbNollywood.isChecked()) lagosConnuePour.append("Nollywood, ");
-            if (cbAfrobeat.isChecked()) lagosConnuePour.append("Afrobeat, ");
-            if (cbPlages.isChecked()) lagosConnuePour.append("Plages, ");
-            if (cbEconomie.isChecked()) lagosConnuePour.append("Économie, ");
-            if (cbGastronomie.isChecked()) lagosConnuePour.append("Gastronomie, ");
-            if (lagosConnuePour.length() > 0) lagosConnuePour.setLength(lagosConnuePour.length() - 2);
-
-            String resume = "Ambiance : " + ambianceChoisie +
-                    "\nCapitale : " + capitale +
-                    "\nMarrakech : " + paysMarrakech +
-                    "\nVille à découvrir : " + villeChoisie +
-                    "\nLagos connue pour : " + lagosConnuePour;
-
-            Toast.makeText(this, resume, Toast.LENGTH_LONG).show();
-            startActivity(new Intent(Activity9.this, Activity10.class));
+            // Fermer Activity9 pour que le bouton "Précédent" n'y revienne pas
+            finish();
         });
+
 
         // === Bouton "Précédent" ===
         Button buttonPrecedent = findViewById(R.id.button16);

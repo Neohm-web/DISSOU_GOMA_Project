@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -40,34 +41,47 @@ public class Activity1 extends AppCompatActivity {
             return insets;
         });
 
-
         editTextNom = findViewById(R.id.editTextNom);
         editTextAge = findViewById(R.id.editTextAge);
         radioGroupSexe = findViewById(R.id.radioGroupSexe);
         spinnerHeros = findViewById(R.id.spinnerHeros);
         avatarImage = findViewById(R.id.avatarImage);
 
-        // Remplir le spinner
+        // --- Spinner : héros africains ---
         String[] heros = {
                 "Sundiata Keïta", "Kwame Nkrumah", "Kimpa Vita",
-                "Simon Kimbangu", "Shaka Zulu", "Nelson Mandela", "Béhanzin", "Agojié"};
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, heros);
+                "Simon Kimbangu", "Shaka Zulu", "Nelson Mandela",
+                "Béhanzin", "Agojié"
+        };
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, heros);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerHeros.setAdapter(adapter);
-        //spinnerHeros.setEnabled(false); // Spinner désactivé au départ
+        spinnerHeros.setEnabled(true); // désactivé tant que le nom n’est pas rempli
 
-        // Activer le spinner si le champ nom n'est pas vide
+        // --- Activer le spinner si le nom est saisi ---
         editTextNom.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
-                spinnerHeros.setEnabled(s.length() > 0);
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-            @Override public void afterTextChanged(Editable s) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                spinnerHeros.setEnabled(s.length() > 0);
+                if (s.length() > 0) {
+                    Toast.makeText(Activity1.this, "Nom saisi : " + s, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
         });
-        // Changer avatar selon héros choisi
+
+        // --- Choix du héros ---
         spinnerHeros.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String heroChoisi = heros[position];
                 switch (position) {
                     case 0:
                         avatarImage.setImageResource(R.drawable.sundiata_keita);
@@ -87,7 +101,7 @@ public class Activity1 extends AppCompatActivity {
                     case 5:
                         avatarImage.setImageResource(R.drawable.nelson_mandela);
                         break;
-                    case 6	:
+                    case 6:
                         avatarImage.setImageResource(R.drawable.behanzin);
                         break;
                     case 7:
@@ -96,19 +110,33 @@ public class Activity1 extends AppCompatActivity {
                     default:
                         avatarImage.setImageResource(R.drawable.default_avatar);
                 }
+
+                // ✅ Afficher le héros choisi
+                Toast.makeText(Activity1.this, "Héros choisi : " + heroChoisi, Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
+        // --- Choix du sexe ---
+        radioGroupSexe.setOnCheckedChangeListener((group, checkedId) -> {
+            RadioButton rb = findViewById(checkedId);
+            if (rb != null) {
+                Toast.makeText(Activity1.this, "Sexe sélectionné : " + rb.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // --- Bouton retour (button7) ---
         Button button7 = findViewById(R.id.button7);
         button7.setOnClickListener(v -> {
+            Toast.makeText(Activity1.this, "Retour à l’accueil", Toast.LENGTH_SHORT).show();
             Intent intent2 = new Intent(Activity1.this, MainActivity.class);
             startActivity(intent2);
         });
 
-
+        // --- Bouton continuer (button8) ---
         Button button8 = findViewById(R.id.button8);
         button8.setOnClickListener(v -> {
             String nom = editTextNom.getText().toString();
@@ -118,12 +146,30 @@ public class Activity1 extends AppCompatActivity {
             RadioButton selectedSexe = findViewById(selectedSexeId);
             String sexe = selectedSexe != null ? selectedSexe.getText().toString() : "";
 
-            Toast.makeText(this, "Nom: " + nom + "\nÂge: " + age + "\nSexe: " + sexe, Toast.LENGTH_SHORT).show();
+            if (nom.isEmpty() || age.isEmpty() || sexe.isEmpty()) {
+                Toast.makeText(this, "Merci de remplir tous les champs avant de continuer", Toast.LENGTH_LONG).show();
+                return;
+            }
 
+            // ✅ Sauvegarde dans SharedPreferences
+            getSharedPreferences("QuizData", MODE_PRIVATE)
+                    .edit()
+                    .putString("user_name", nom)
+                    .putString("user_age", age)
+                    .putString("user_sexe", sexe)
+                    .putInt("score_total", 0) // score initialisé à 0
+                    .apply();
+
+            // ✅ Confirmation
+            Toast.makeText(this,
+                    "✅ Profil enregistré !\nNom : " + nom +
+                            "\nÂge : " + age +
+                            "\nSexe : " + sexe,
+                    Toast.LENGTH_LONG).show();
+            Log.d("DEBUG", "Nom: " + nom + ", Âge: " + age + ", Sexe: " + sexe);
+
+            // Passer à l’activité suivante
             Intent intent1 = new Intent(Activity1.this, Activity1_1.class);
-            intent1.putExtra("nom", nom);
-            intent1.putExtra("age", age);
-            intent1.putExtra("sexe", sexe);
             startActivity(intent1);
         });
     }
