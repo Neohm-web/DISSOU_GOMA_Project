@@ -1,6 +1,9 @@
 package com.example.dissou_goma_project;
 
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -12,18 +15,26 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 public class Activity8 extends AppCompatActivity {
+
 
     private Spinner spinnerTotem, spinnerDanger;
     private RadioGroup radioGroupElephants;
     private CheckBox cbLion, cbElephant, cbRhino, cbLeopard, cbBuffle, cbGirafe, cbZebre, cbGuepard;
     private ToggleButton toggleChameau;
+    private Button buttonSuivant;
+
+
+    private SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +42,22 @@ public class Activity8 extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_8);
 
+
+        sharedPreferences = getSharedPreferences("Activity8Prefs", Context.MODE_PRIVATE);
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
+
         // === Initialisation des vues ===
         spinnerTotem = findViewById(R.id.spinnerTotem);
         spinnerDanger = findViewById(R.id.spinnerDanger);
         radioGroupElephants = findViewById(R.id.radioGroupElephants);
+
 
         cbLion = findViewById(R.id.cbLion);
         cbElephant = findViewById(R.id.cbElephant);
@@ -51,7 +68,10 @@ public class Activity8 extends AppCompatActivity {
         cbZebre = findViewById(R.id.cbZebre);
         cbGuepard = findViewById(R.id.cbGuepard);
 
+
         toggleChameau = findViewById(R.id.toggleChameau);
+        buttonSuivant = findViewById(R.id.button22);
+
 
         // === Spinners ===
         String[] totems = {"Python (sagesse)", "Lion (courage)", "Tortue (longévité)", "Éléphant (force)", "Aigle (liberté)"};
@@ -59,43 +79,41 @@ public class Activity8 extends AppCompatActivity {
         adapterTotem.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTotem.setAdapter(adapterTotem);
 
+
         String[] animauxDangereux = {"Lion", "Hippopotame", "Crocodile", "Moustique", "Buffle"};
         ArrayAdapter<String> adapterDanger = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, animauxDangereux);
         adapterDanger.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDanger.setAdapter(adapterDanger);
 
-        // === Toasts pour les Spinners ===
+
+        // === Listeners ===
         spinnerTotem.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, android.view.View view, int position, long id) {
-                String choix = parent.getItemAtPosition(position).toString();
-                Toast.makeText(Activity8.this, "Totem choisi : " + choix, Toast.LENGTH_SHORT).show();
+                checkAllFieldsFilled();
             }
+
 
             @Override
             public void onNothingSelected(android.widget.AdapterView<?> parent) {}
         });
+
 
         spinnerDanger.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, android.view.View view, int position, long id) {
-                String choix = parent.getItemAtPosition(position).toString();
-                Toast.makeText(Activity8.this, "Animal dangereux choisi : " + choix, Toast.LENGTH_SHORT).show();
+                checkAllFieldsFilled();
             }
+
 
             @Override
             public void onNothingSelected(android.widget.AdapterView<?> parent) {}
         });
 
-        // === RadioGroup Éléphants ===
-        radioGroupElephants.setOnCheckedChangeListener((group, checkedId) -> {
-            RadioButton rb = findViewById(checkedId);
-            if (rb != null) {
-                Toast.makeText(this, "Nombre d’éléphants choisi : " + rb.getText(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
-        // === CheckBoxes Big Five + autres ===
+        radioGroupElephants.setOnCheckedChangeListener((group, checkedId) -> checkAllFieldsFilled());
+
+
         setCheckboxToast(cbLion);
         setCheckboxToast(cbElephant);
         setCheckboxToast(cbRhino);
@@ -105,54 +123,22 @@ public class Activity8 extends AppCompatActivity {
         setCheckboxToast(cbZebre);
         setCheckboxToast(cbGuepard);
 
-        // === ToggleButton Chameau ===
-        toggleChameau.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                toggleChameau.setBackgroundColor(Color.parseColor("#4CAF50")); // vert
-                Toast.makeText(this, "Choix : Chameau", Toast.LENGTH_SHORT).show();
-            } else {
-                toggleChameau.setBackgroundColor(Color.parseColor("#D3D3D3")); // gris clair
-                Toast.makeText(this, "Choix : Autre", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+        toggleChameau.setOnCheckedChangeListener((buttonView, isChecked) -> checkAllFieldsFilled());
+
 
         // === Bouton "Suivant" ===
-        Button buttonSuivant = findViewById(R.id.button22);
         buttonSuivant.setOnClickListener(v -> {
-            // Lecture des réponses
-            String totemChoisi = spinnerTotem.getSelectedItem().toString();
-            String animalDangereux = spinnerDanger.getSelectedItem().toString();
-
-            String nbElephants = "";
-            int selectedId = radioGroupElephants.getCheckedRadioButtonId();
-            if (selectedId != -1) {
-                RadioButton rb = findViewById(selectedId);
-                nbElephants = rb.getText().toString();
+            if (!areAllFieldsFilled()) {
+                Toast.makeText(this, "Veuillez remplir tous les champs avant de continuer", Toast.LENGTH_SHORT).show();
+                return;
             }
 
-            StringBuilder bigFive = new StringBuilder();
-            if (cbLion.isChecked()) bigFive.append("Lion, ");
-            if (cbElephant.isChecked()) bigFive.append("Éléphant, ");
-            if (cbRhino.isChecked()) bigFive.append("Rhinocéros, ");
-            if (cbLeopard.isChecked()) bigFive.append("Léopard, ");
-            if (cbBuffle.isChecked()) bigFive.append("Buffle, ");
-            if (cbGirafe.isChecked()) bigFive.append("Girafe, ");
-            if (cbZebre.isChecked()) bigFive.append("Zèbre, ");
-            if (cbGuepard.isChecked()) bigFive.append("Guépard, ");
-            if (bigFive.length() > 0) bigFive.setLength(bigFive.length() - 2);
 
-            String animalSansEau = toggleChameau.isChecked() ? "Chameau" : "Autre";
-
-            // Résumé
-            String resume = "Totem : " + totemChoisi +
-                    "\nÉléphants : " + nbElephants +
-                    "\nDangereux : " + animalDangereux +
-                    "\nBig Five : " + bigFive +
-                    "\nSans eau : " + animalSansEau;
-
-            Toast.makeText(this, resume, Toast.LENGTH_LONG).show();
-            startActivity(new Intent(Activity8.this, Activity9.class));
+            saveResponses();
+            startActivity(new Intent(Activity8.this, Activity10.class));
         });
+
 
         // === Bouton "Précédent" ===
         Button buttonPrecedent = findViewById(R.id.button21);
@@ -160,16 +146,76 @@ public class Activity8 extends AppCompatActivity {
             Toast.makeText(this, "Retour à l’activité précédente", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(Activity8.this, Activity7.class));
         });
+
+
+        checkAllFieldsFilled(); // initial check
     }
+
 
     /** Ajoute un Toast automatique pour chaque CheckBox cochée/décochée **/
     private void setCheckboxToast(CheckBox checkBox) {
-        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                Toast.makeText(this, checkBox.getText() + " sélectionné(e)", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, checkBox.getText() + " désélectionné(e)", Toast.LENGTH_SHORT).show();
-            }
-        });
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> checkAllFieldsFilled());
+    }
+
+
+    /** Vérifie si tous les champs sont remplis **/
+    private boolean areAllFieldsFilled() {
+        boolean spinnerTotemFilled = spinnerTotem.getSelectedItemPosition() != -1;
+        boolean spinnerDangerFilled = spinnerDanger.getSelectedItemPosition() != -1;
+        boolean radioElephantsChecked = radioGroupElephants.getCheckedRadioButtonId() != -1;
+        boolean bigFiveChecked = cbLion.isChecked() || cbElephant.isChecked() || cbRhino.isChecked() ||
+                cbLeopard.isChecked() || cbBuffle.isChecked() || cbGirafe.isChecked() ||
+                cbZebre.isChecked() || cbGuepard.isChecked();
+        boolean toggleChecked = toggleChameau.isChecked() || !toggleChameau.isChecked(); // toujours vrai
+
+
+        return spinnerTotemFilled && spinnerDangerFilled && radioElephantsChecked && bigFiveChecked && toggleChecked;
+    }
+
+
+    /** Active ou désactive le bouton "Suivant" selon le remplissage des champs **/
+    private void checkAllFieldsFilled() {
+        buttonSuivant.setEnabled(areAllFieldsFilled());
+    }
+
+
+    /** Sauvegarde les réponses dans SharedPreferences **/
+    private void saveResponses() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+
+        editor.putString("totem", spinnerTotem.getSelectedItem().toString());
+
+
+        int selectedId = radioGroupElephants.getCheckedRadioButtonId();
+        if (selectedId != -1) {
+            RadioButton rb = findViewById(selectedId);
+            editor.putString("nbElephants", rb.getText().toString());
+        }
+
+
+        editor.putString("animalDangereux", spinnerDanger.getSelectedItem().toString());
+
+
+        editor.putBoolean("cbLion", cbLion.isChecked());
+        editor.putBoolean("cbElephant", cbElephant.isChecked());
+        editor.putBoolean("cbRhino", cbRhino.isChecked());
+        editor.putBoolean("cbLeopard", cbLeopard.isChecked());
+        editor.putBoolean("cbBuffle", cbBuffle.isChecked());
+        editor.putBoolean("cbGirafe", cbGirafe.isChecked());
+        editor.putBoolean("cbZebre", cbZebre.isChecked());
+        editor.putBoolean("cbGuepard", cbGuepard.isChecked());
+
+
+        editor.putBoolean("toggleChameau", toggleChameau.isChecked());
+
+
+        editor.apply();
+        Toast.makeText(this, "Réponses sauvegardées", Toast.LENGTH_SHORT).show();
     }
 }
+
+
+
+
+

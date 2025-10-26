@@ -1,6 +1,8 @@
 package com.example.dissou_goma_project;
 
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +13,20 @@ import android.widget.Spinner;
 import android.widget.ToggleButton;
 import android.widget.Toast;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.activity.EdgeToEdge;
 
+
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
+
 public class Activity3 extends AppCompatActivity {
+
 
     private ListView listViewMusics;
     private Spinner spinner3;
@@ -29,11 +35,22 @@ public class Activity3 extends AppCompatActivity {
     private boolean auMoinsUnChip = false;
     private boolean danseChoisie = false;
 
+
+    // SharedPreferences
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_3);
+
+
+        sharedPreferences = getSharedPreferences("MesPreferences", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -41,39 +58,42 @@ public class Activity3 extends AppCompatActivity {
             return insets;
         });
 
+
         // --- Boutons navigation ---
         Button buttonSuivant = findViewById(R.id.button6);
         Button buttonPrecedent = findViewById(R.id.button5);
 
+
         // Retour
         buttonPrecedent.setOnClickListener(v -> {
             Toast.makeText(this, "⬅️ Retour à l’activité précédente", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Activity3.this, Activity2.class);
-            startActivity(intent);
+            startActivity(new Intent(Activity3.this, Activity2.class));
         });
+
 
         // --- TOGGLE BUTTONS : langues ---
         int[] toggleIds = {R.id.toggleButton, R.id.toggleButton2, R.id.toggleButton3,
                 R.id.toggleButton4, R.id.toggleButton5, R.id.toggleButton6};
         String[] toggleTexts = {"Ewe", "Lingala", "Anglais", "Français", "Arabe", "Swahili"};
 
+
         for (int i = 0; i < toggleIds.length; i++) {
             ToggleButton toggle = findViewById(toggleIds[i]);
             toggle.setTextOn(toggleTexts[i]);
             toggle.setTextOff(toggleTexts[i]);
-            toggle.setChecked(false);
-            toggle.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+            toggle.setChecked(sharedPreferences.getBoolean(toggleTexts[i], false));
+            toggle.setBackgroundColor(toggle.isChecked() ?
+                    getResources().getColor(android.R.color.holo_green_light) :
+                    getResources().getColor(android.R.color.darker_gray));
+
 
             toggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 String text = buttonView.getText().toString();
                 if (isChecked) {
                     buttonView.setBackgroundColor(getResources().getColor(android.R.color.holo_green_light));
-                    Toast.makeText(Activity3.this, "✅ Langue sélectionnée : " + text, Toast.LENGTH_SHORT).show();
                     auMoinsUneLangue = true;
                 } else {
                     buttonView.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
-                    Toast.makeText(Activity3.this, "❌ Langue désélectionnée : " + text, Toast.LENGTH_SHORT).show();
-
                     // Vérifie s’il reste une langue cochée
                     boolean encoreUne = false;
                     for (int id : toggleIds) {
@@ -85,8 +105,11 @@ public class Activity3 extends AppCompatActivity {
                     }
                     auMoinsUneLangue = encoreUne;
                 }
+                editor.putBoolean(text, isChecked);
+                editor.apply();
             });
         }
+
 
         // --- LISTVIEW : styles de musique ---
         listViewMusics = findViewById(R.id.listViewMusics);
@@ -97,13 +120,21 @@ public class Activity3 extends AppCompatActivity {
         listViewMusics.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         setListViewHeightBasedOnChildren(listViewMusics);
 
-        listViewMusics.setOnItemClickListener((parent, view, position, id) -> {
-            String choix = musics[position];
-            if (listViewMusics.isItemChecked(position)) {
-                Toast.makeText(this, "🎶 Style sélectionné : " + choix, Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "🚫 Style retiré : " + choix, Toast.LENGTH_SHORT).show();
+
+        // Restaurer les choix depuis SharedPreferences
+        for (int i = 0; i < musics.length; i++) {
+            if (sharedPreferences.getBoolean("music_" + musics[i], false)) {
+                listViewMusics.setItemChecked(i, true);
+                auMoinsUnStyleMusical = true;
             }
+        }
+
+
+        listViewMusics.setOnItemClickListener((parent, view, position, id) -> {
+            boolean checked = listViewMusics.isItemChecked(position);
+            editor.putBoolean("music_" + musics[position], checked);
+            editor.apply();
+
 
             // Vérifie s’il y a au moins un élément sélectionné
             auMoinsUnStyleMusical = false;
@@ -115,6 +146,7 @@ public class Activity3 extends AppCompatActivity {
             }
         });
 
+
         // --- SPINNER : danses africaines ---
         spinner3 = findViewById(R.id.spinner3);
         String[] dances = {"Coupé-décalé", "Ndombolo", "Azonto", "Gwara Gwara", "Kizomba", "Aucune mais je suis curieux !"};
@@ -122,19 +154,35 @@ public class Activity3 extends AppCompatActivity {
         adapterDances.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapterDances);
 
+
+        // Restaurer danse choisie
+        String danseSaved = sharedPreferences.getString("danse_choisie", "");
+        if (!danseSaved.isEmpty()) {
+            for (int i = 0; i < dances.length; i++) {
+                if (dances[i].equals(danseSaved)) {
+                    spinner3.setSelection(i);
+                    danseChoisie = true;
+                    break;
+                }
+            }
+        }
+
+
         spinner3.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
                 danseChoisie = true;
-                String choix = dances[position];
-                Toast.makeText(Activity3.this, "💃 Danse choisie : " + choix, Toast.LENGTH_SHORT).show();
+                editor.putString("danse_choisie", dances[position]);
+                editor.apply();
             }
+
 
             @Override
             public void onNothingSelected(android.widget.AdapterView<?> parent) {
                 danseChoisie = false;
             }
         });
+
 
         // --- CHIPGROUP : religions ---
         ChipGroup chipGroup = findViewById(R.id.chipGroup);
@@ -143,13 +191,12 @@ public class Activity3 extends AppCompatActivity {
                 View v = chipGroup.getChildAt(i);
                 if (v instanceof Chip) {
                     Chip chip = (Chip) v;
+                    String religion = chip.getText().toString();
+                    chip.setChecked(sharedPreferences.getBoolean("religion_" + religion, false));
                     chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                        String religion = chip.getText().toString();
-                        if (isChecked) {
-                            Toast.makeText(Activity3.this, "🙏 Religion sélectionnée : " + religion, Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(Activity3.this, "❌ Religion retirée : " + religion, Toast.LENGTH_SHORT).show();
-                        }
+                        editor.putBoolean("religion_" + religion, isChecked);
+                        editor.apply();
+
 
                         // Vérifie s’il reste au moins un chip sélectionné
                         auMoinsUnChip = false;
@@ -165,38 +212,38 @@ public class Activity3 extends AppCompatActivity {
             }
         }
 
+
         // --- Bouton SUIVANT avec vérification avant de passer ---
         buttonSuivant.setOnClickListener(v -> {
             if (!auMoinsUneLangue) {
                 Toast.makeText(this, "❗Veuillez sélectionner au moins une langue.", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             if (!auMoinsUnStyleMusical) {
                 Toast.makeText(this, "❗Veuillez choisir au moins un style musical.", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             if (!auMoinsUnChip) {
                 Toast.makeText(this, "❗Veuillez cocher au moins une religion.", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             if (!danseChoisie) {
                 Toast.makeText(this, "❗Veuillez choisir une danse africaine.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
+
             Toast.makeText(this, "✅ Super ! Passage à la suite 🎉", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Activity3.this, Activity4.class);
-            startActivity(intent);
+            startActivity(new Intent(Activity3.this, Activity4.class));
         });
     }
+
 
     // Méthode pour ajuster la hauteur ListView
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
         if (adapter == null) return;
+
 
         int totalHeight = 0;
         for (int i = 0; i < adapter.getCount(); i++) {
@@ -210,3 +257,8 @@ public class Activity3 extends AppCompatActivity {
         listView.requestLayout();
     }
 }
+
+
+
+
+

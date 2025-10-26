@@ -1,6 +1,9 @@
 package com.example.dissou_goma_project;
 
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -12,13 +15,16 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 public class Activity9 extends AppCompatActivity {
+
 
     private ImageButton imgVilleModerne, imgVilleHistorique, imgVilleCulturelle, imgVilleBalneaire;
     private RadioGroup radioGroupCapitale;
@@ -26,7 +32,10 @@ public class Activity9 extends AppCompatActivity {
     private AutoCompleteTextView autoVille;
     private CheckBox cbNollywood, cbAfrobeat, cbPlages, cbEconomie, cbGastronomie;
 
+
     private String ambianceChoisie = "";
+    private SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +43,16 @@ public class Activity9 extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_9);
 
+
+        sharedPreferences = getSharedPreferences("Activity9Prefs", Context.MODE_PRIVATE);
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
 
         // === Initialisation ===
         imgVilleModerne = findViewById(R.id.imgVilleModerne);
@@ -46,9 +60,11 @@ public class Activity9 extends AppCompatActivity {
         imgVilleCulturelle = findViewById(R.id.imgVilleCulturelle);
         imgVilleBalneaire = findViewById(R.id.imgVilleBalneaire);
 
+
         radioGroupCapitale = findViewById(R.id.radioGroupCapitale);
         spinnerMarrakech = findViewById(R.id.spinnerMarrakech);
         autoVille = findViewById(R.id.autoVille);
+
 
         cbNollywood = findViewById(R.id.cbNollywood);
         cbAfrobeat = findViewById(R.id.cbAfrobeat);
@@ -56,26 +72,13 @@ public class Activity9 extends AppCompatActivity {
         cbEconomie = findViewById(R.id.cbEconomie);
         cbGastronomie = findViewById(R.id.cbGastronomie);
 
+
         // === Choix ambiance (ImageButtons) ===
-        imgVilleModerne.setOnClickListener(v -> {
-            ambianceChoisie = "Ville moderne (Johannesburg, Cotonou, Nairobi)";
-            Toast.makeText(this, "Ambiance : " + ambianceChoisie, Toast.LENGTH_SHORT).show();
-        });
+        imgVilleModerne.setOnClickListener(v -> saveAmbiance("Ville moderne (Johannesburg, Cotonou, Nairobi)"));
+        imgVilleHistorique.setOnClickListener(v -> saveAmbiance("Ville historique (Ouidah, Brazzaville, Gorée)"));
+        imgVilleCulturelle.setOnClickListener(v -> saveAmbiance("Ville culturelle (Dakar, Abomey, Saint-Louis)"));
+        imgVilleBalneaire.setOnClickListener(v -> saveAmbiance("Ville balnéaire (Pointe-Noire, Grand-Popo, Zanzibar)"));
 
-        imgVilleHistorique.setOnClickListener(v -> {
-            ambianceChoisie = "Ville historique (Ouidah, Brazzaville, Gorée)";
-            Toast.makeText(this, "Ambiance : " + ambianceChoisie, Toast.LENGTH_SHORT).show();
-        });
-
-        imgVilleCulturelle.setOnClickListener(v -> {
-            ambianceChoisie = "Ville culturelle (Dakar, Abomey, Saint-Louis)";
-            Toast.makeText(this, "Ambiance : " + ambianceChoisie, Toast.LENGTH_SHORT).show();
-        });
-
-        imgVilleBalneaire.setOnClickListener(v -> {
-            ambianceChoisie = "Ville balnéaire (Pointe-Noire, Grand-Popo, Zanzibar)";
-            Toast.makeText(this, "Ambiance : " + ambianceChoisie, Toast.LENGTH_SHORT).show();
-        });
 
         // === Spinner Marrakech ===
         String[] pays = {"Maroc", "Algérie", "Tunisie", "Égypte"};
@@ -83,52 +86,49 @@ public class Activity9 extends AppCompatActivity {
         adapterPays.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerMarrakech.setAdapter(adapterPays);
 
+
         spinnerMarrakech.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, android.view.View view, int position, long id) {
-                String choix = parent.getItemAtPosition(position).toString();
-                Toast.makeText(Activity9.this, "Marrakech se trouve au : " + choix, Toast.LENGTH_SHORT).show();
+                saveSpinnerChoix(parent.getItemAtPosition(position).toString());
             }
-
             @Override
             public void onNothingSelected(android.widget.AdapterView<?> parent) {}
         });
+
 
         // === AutoCompleteTextView pour la ville ===
         String[] villes = {"Le Caire", "Lagos", "Nairobi", "Casablanca", "Dakar", "Addis-Abeba", "Accra", "Kigali"};
         ArrayAdapter<String> adapterVilles = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, villes);
         autoVille.setAdapter(adapterVilles);
+        autoVille.setOnItemClickListener((parent, view, position, id) ->
+                saveAutoComplete(parent.getItemAtPosition(position).toString())
+        );
 
-        autoVille.setOnItemClickListener((parent, view, position, id) -> {
-            String ville = parent.getItemAtPosition(position).toString();
-            Toast.makeText(this, "Ville sélectionnée : " + ville, Toast.LENGTH_SHORT).show();
-        });
 
         // === RadioGroup Capitales ===
         radioGroupCapitale.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton rb = findViewById(checkedId);
-            if (rb != null) {
-                Toast.makeText(this, "Capitale choisie : " + rb.getText(), Toast.LENGTH_SHORT).show();
-            }
+            if (rb != null) saveCapitale(rb.getText().toString());
         });
 
+
         // === CheckBoxes Lagos connue pour ===
-        setCheckboxToast(cbNollywood);
-        setCheckboxToast(cbAfrobeat);
-        setCheckboxToast(cbPlages);
-        setCheckboxToast(cbEconomie);
-        setCheckboxToast(cbGastronomie);
+        setCheckboxListener(cbNollywood);
+        setCheckboxListener(cbAfrobeat);
+        setCheckboxListener(cbPlages);
+        setCheckboxListener(cbEconomie);
+        setCheckboxListener(cbGastronomie);
+
 
         // === Bouton "Suivant" ===
         Button buttonSuivant = findViewById(R.id.button23);
         buttonSuivant.setOnClickListener(v -> {
-
-            // Lancer Activity10 (ne récupère qu'une donnée de Activity1)
-            Intent intent32 = new Intent(Activity9.this, Activity10.class);
-            startActivity(intent32);
-
-            // Fermer Activity9 pour que le bouton "Précédent" n'y revienne pas
-            finish();
+            if (verifierChamps()) {
+                startActivity(new Intent(Activity9.this, Activity10.class));
+            } else {
+                Toast.makeText(this, "Veuillez remplir tous les champs obligatoires avant de continuer", Toast.LENGTH_SHORT).show();
+            }
         });
 
 
@@ -140,14 +140,47 @@ public class Activity9 extends AppCompatActivity {
         });
     }
 
-    /** Ajoute un Toast automatique pour chaque CheckBox cochée/décochée **/
-    private void setCheckboxToast(CheckBox checkBox) {
+
+    private void saveAmbiance(String choix) {
+        ambianceChoisie = choix;
+        sharedPreferences.edit().putString("ambiance", ambianceChoisie).apply();
+        Toast.makeText(this, "Ambiance : " + ambianceChoisie, Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void saveCapitale(String choix) {
+        sharedPreferences.edit().putString("capitale", choix).apply();
+        Toast.makeText(this, "Capitale choisie : " + choix, Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void saveSpinnerChoix(String choix) {
+        sharedPreferences.edit().putString("marrakech", choix).apply();
+        Toast.makeText(this, "Marrakech se trouve au : " + choix, Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void saveAutoComplete(String choix) {
+        sharedPreferences.edit().putString("ville", choix).apply();
+        Toast.makeText(this, "Ville sélectionnée : " + choix, Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void setCheckboxListener(CheckBox checkBox) {
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                Toast.makeText(this, checkBox.getText() + " sélectionné(e)", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, checkBox.getText() + " désélectionné(e)", Toast.LENGTH_SHORT).show();
-            }
+            sharedPreferences.edit().putBoolean(checkBox.getText().toString(), isChecked).apply();
+            Toast.makeText(this, checkBox.getText() + (isChecked ? " sélectionné(e)" : " désélectionné(e)"), Toast.LENGTH_SHORT).show();
         });
+    }
+
+
+    private boolean verifierChamps() {
+        boolean ambianceOk = !sharedPreferences.getString("ambiance", "").isEmpty();
+        boolean capitaleOk = !sharedPreferences.getString("capitale", "").isEmpty();
+        boolean marrakechOk = !sharedPreferences.getString("marrakech", "").isEmpty();
+        boolean villeOk = !sharedPreferences.getString("ville", "").isEmpty();
+
+
+        return ambianceOk && capitaleOk && marrakechOk && villeOk;
     }
 }

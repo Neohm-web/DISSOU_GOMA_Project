@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">DISSOU_GOMA_Project</string>
+    <string-array name="preferences_options">
+        <item>Les paysages et animaux</item>
+        <item>Les cultures et traditions</item>
+        <item>L’histoire et les héros</item>
+        <item>La gastronomie africaine</item>
+        <item>Un peu de tout ! 🌍</item>
+    </string-array>
 </resources>
