@@ -60,12 +60,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textColor="#3E2723"
-            android:gravity="center"
+            android:lineSpacingExtra="6dp"
+            android:fontFamily="monospace"
+            android:background="#FFF3E0"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="2dp"
             android:text="Ton profil apparaîtra ici..."
-            android:layout_marginTop="16dp" />
-
+            android:scrollbars="vertical" />
 
     </LinearLayout>
 </ScrollView>

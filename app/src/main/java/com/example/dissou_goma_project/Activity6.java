@@ -50,11 +50,12 @@ public class Activity6 extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_6);
 
-
         sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-
+        // 🔹 Nettoyage si tu veux recommencer à zéro
+        sharedPreferences.edit().clear().apply();
         // Ajustement padding pour barres système
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

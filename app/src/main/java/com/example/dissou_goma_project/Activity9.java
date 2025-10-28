@@ -121,15 +121,22 @@ public class Activity9 extends AppCompatActivity {
         setCheckboxListener(cbGastronomie);
 
 
-        // === Bouton "Suivant" ===
         Button buttonSuivant = findViewById(R.id.button23);
         buttonSuivant.setOnClickListener(v -> {
             if (verifierChamps()) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("ville", autoVille.getText().toString());
+                editor.putString("capitale", ((RadioButton)findViewById(radioGroupCapitale.getCheckedRadioButtonId())).getText().toString());
+                editor.putString("marrakech", spinnerMarrakech.getSelectedItem().toString());
+                editor.putString("ambiance", ambianceChoisie);
+                editor.apply();
+
                 startActivity(new Intent(Activity9.this, Activity10.class));
             } else {
                 Toast.makeText(this, "Veuillez remplir tous les champs obligatoires avant de continuer", Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
         // === Bouton "Précédent" ===
@@ -175,12 +182,18 @@ public class Activity9 extends AppCompatActivity {
 
 
     private boolean verifierChamps() {
-        boolean ambianceOk = !sharedPreferences.getString("ambiance", "").isEmpty();
-        boolean capitaleOk = !sharedPreferences.getString("capitale", "").isEmpty();
-        boolean marrakechOk = !sharedPreferences.getString("marrakech", "").isEmpty();
-        boolean villeOk = !sharedPreferences.getString("ville", "").isEmpty();
+        // On relit directement les valeurs à l’écran
+        boolean ambianceOk = !ambianceChoisie.isEmpty();
 
+        int selectedRadioId = radioGroupCapitale.getCheckedRadioButtonId();
+        boolean capitaleOk = selectedRadioId != -1;
+
+        boolean marrakechOk = spinnerMarrakech.getSelectedItem() != null &&
+                !spinnerMarrakech.getSelectedItem().toString().isEmpty();
+
+        boolean villeOk = !autoVille.getText().toString().trim().isEmpty();
 
         return ambianceOk && capitaleOk && marrakechOk && villeOk;
     }
+
 }

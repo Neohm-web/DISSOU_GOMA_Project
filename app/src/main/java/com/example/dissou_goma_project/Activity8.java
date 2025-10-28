@@ -136,7 +136,7 @@ public class Activity8 extends AppCompatActivity {
 
 
             saveResponses();
-            startActivity(new Intent(Activity8.this, Activity10.class));
+            startActivity(new Intent(Activity8.this, Activity9.class));
         });
 
 

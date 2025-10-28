@@ -81,10 +81,9 @@ public class Activity3 extends AppCompatActivity {
             ToggleButton toggle = findViewById(toggleIds[i]);
             toggle.setTextOn(toggleTexts[i]);
             toggle.setTextOff(toggleTexts[i]);
-            toggle.setChecked(sharedPreferences.getBoolean(toggleTexts[i], false));
-            toggle.setBackgroundColor(toggle.isChecked() ?
-                    getResources().getColor(android.R.color.holo_green_light) :
-                    getResources().getColor(android.R.color.darker_gray));
+            // On NE restaure plus les anciennes valeurs :
+            toggle.setChecked(false);
+            toggle.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
 
 
             toggle.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -121,22 +120,14 @@ public class Activity3 extends AppCompatActivity {
         setListViewHeightBasedOnChildren(listViewMusics);
 
 
-        // Restaurer les choix depuis SharedPreferences
-        for (int i = 0; i < musics.length; i++) {
-            if (sharedPreferences.getBoolean("music_" + musics[i], false)) {
-                listViewMusics.setItemChecked(i, true);
-                auMoinsUnStyleMusical = true;
-            }
-        }
-
-
+        // ❌ On supprime la restauration précédente des choix
+        // ✅ Mais on garde la sauvegarde lors du clic :
         listViewMusics.setOnItemClickListener((parent, view, position, id) -> {
             boolean checked = listViewMusics.isItemChecked(position);
             editor.putBoolean("music_" + musics[position], checked);
             editor.apply();
 
 
-            // Vérifie s’il y a au moins un élément sélectionné
             auMoinsUnStyleMusical = false;
             for (int i = 0; i < musics.length; i++) {
                 if (listViewMusics.isItemChecked(i)) {
@@ -155,19 +146,8 @@ public class Activity3 extends AppCompatActivity {
         spinner3.setAdapter(adapterDances);
 
 
-        // Restaurer danse choisie
-        String danseSaved = sharedPreferences.getString("danse_choisie", "");
-        if (!danseSaved.isEmpty()) {
-            for (int i = 0; i < dances.length; i++) {
-                if (dances[i].equals(danseSaved)) {
-                    spinner3.setSelection(i);
-                    danseChoisie = true;
-                    break;
-                }
-            }
-        }
-
-
+        // ❌ On supprime la restauration de la danse sauvegardée
+        // ✅ On garde l’écouteur qui sauvegarde :
         spinner3.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
@@ -192,13 +172,16 @@ public class Activity3 extends AppCompatActivity {
                 if (v instanceof Chip) {
                     Chip chip = (Chip) v;
                     String religion = chip.getText().toString();
-                    chip.setChecked(sharedPreferences.getBoolean("religion_" + religion, false));
+                    // ❌ On retire la restauration :
+                    chip.setChecked(false);
+
+
+                    // ✅ On garde la sauvegarde au clic :
                     chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
                         editor.putBoolean("religion_" + religion, isChecked);
                         editor.apply();
 
 
-                        // Vérifie s’il reste au moins un chip sélectionné
                         auMoinsUnChip = false;
                         for (int j = 0; j < chipGroup.getChildCount(); j++) {
                             Chip c = (Chip) chipGroup.getChildAt(j);
@@ -257,6 +240,7 @@ public class Activity3 extends AppCompatActivity {
         listView.requestLayout();
     }
 }
+
 
 
 

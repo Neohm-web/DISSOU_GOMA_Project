@@ -23,8 +23,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class Activity2 extends AppCompatActivity {
 
 
-    private int selectionAnimal = -1; // valeur du spinner
-    private int valeurSeekBar = -1;   // valeur de la SeekBar
+    private boolean animalSelectionne = false;
+    private boolean seekBarTouche = false;
 
 
     private SharedPreferences sharedPreferences;
@@ -54,7 +54,7 @@ public class Activity2 extends AppCompatActivity {
 
         // --- Spinner ---
         Spinner animalSpinner = findViewById(R.id.animalSpinner);
-        String[] animals = {"🦁 Le lion", "🐆 Le guépard", "🦌 La gazelle", "🐦 L'autruche"};
+        String[] animals = {"Sélectionnez un animal", "🦁 Le lion", "🐆 Le guépard", "🦌 La gazelle", "🐦 L'autruche"};
 
 
         ArrayAdapter<String> animalAdapter = new ArrayAdapter<>(
@@ -66,30 +66,23 @@ public class Activity2 extends AppCompatActivity {
         animalSpinner.setAdapter(animalAdapter);
 
 
-        // Restaurer sélection sauvegardée
-        selectionAnimal = sharedPreferences.getInt("selectionAnimal", -1);
-        if (selectionAnimal != -1) {
-            animalSpinner.setSelection(selectionAnimal);
-        }
-
-
         animalSpinner.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parent, android.view.View view, int position, long id) {
-                selectionAnimal = position;
-
-
-                // Sauvegarde dans SharedPreferences
-                sharedPreferences.edit().putInt("selectionAnimal", selectionAnimal).apply();
-
-
-                String animalChoisi = animals[position];
-                Toast.makeText(Activity2.this, "🐾 Animal préféré : " + animalChoisi, Toast.LENGTH_SHORT).show();
+                if (position > 0) {
+                    animalSelectionne = true;
+                    String animalChoisi = animals[position];
+                    Toast.makeText(Activity2.this, "🐾 Animal préféré : " + animalChoisi, Toast.LENGTH_SHORT).show();
+                } else {
+                    animalSelectionne = false;
+                }
             }
 
 
             @Override
-            public void onNothingSelected(android.widget.AdapterView<?> parent) { }
+            public void onNothingSelected(android.widget.AdapterView<?> parent) {
+                animalSelectionne = false;
+            }
         });
 
 
@@ -97,28 +90,15 @@ public class Activity2 extends AppCompatActivity {
         SeekBar desertSeekBar = findViewById(R.id.desertSeekBar);
         TextView seekBarValue = findViewById(R.id.seekBarValue);
         desertSeekBar.setMax(10);
-
-
-        // Restaurer valeur sauvegardée
-        valeurSeekBar = sharedPreferences.getInt("valeurSeekBar", -1);
-        if (valeurSeekBar != -1) {
-            desertSeekBar.setProgress(valeurSeekBar);
-            if (valeurSeekBar == 10) {
-                seekBarValue.setText("Nombre estimé : 10+");
-            } else {
-                seekBarValue.setText("Nombre estimé : " + (valeurSeekBar + 1));
-            }
-        }
+        seekBarValue.setText("Déplacez le curseur pour estimer");
 
 
         desertSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                valeurSeekBar = progress;
-
-
-                // Sauvegarde dans SharedPreferences
-                sharedPreferences.edit().putInt("valeurSeekBar", valeurSeekBar).apply();
+                if (fromUser) {
+                    seekBarTouche = true;
+                }
 
 
                 if (progress == 10) {
@@ -137,10 +117,11 @@ public class Activity2 extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                if (valeurSeekBar == 10) {
-                    Toast.makeText(Activity2.this, "🔥 Tu penses qu’il y en a plus de 10 !", Toast.LENGTH_SHORT).show();
+                int progress = seekBar.getProgress();
+                if (progress == 10) {
+                    Toast.makeText(Activity2.this, "🔥 Tu penses qu'il y en a plus de 10 !", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(Activity2.this, "✨ Estimation finale : " + (valeurSeekBar + 1), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity2.this, "✨ Estimation finale : " + (progress + 1), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -148,18 +129,18 @@ public class Activity2 extends AppCompatActivity {
 
         // --- Bouton Précédent ---
         button13.setOnClickListener(v -> {
-            Toast.makeText(this, "⬅️ Retour à l’activité précédente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "⬅️ Retour à l'activité précédente", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(Activity2.this, Activity1_1.class));
         });
 
 
         // --- Bouton Suivant ---
         button12.setOnClickListener(v -> {
-            if (selectionAnimal == -1) {
+            if (!animalSelectionne) {
                 Toast.makeText(this, "❗Veuillez choisir un animal avant de continuer.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (valeurSeekBar == -1) {
+            if (!seekBarTouche) {
                 Toast.makeText(this, "❗Veuillez ajuster la barre avant de continuer.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -170,8 +151,3 @@ public class Activity2 extends AppCompatActivity {
         });
     }
 }
-
-
-
-
-
