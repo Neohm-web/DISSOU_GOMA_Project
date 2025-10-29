@@ -7,144 +7,155 @@
     android:layout_height="match_parent"
     tools:context=".Activity1">
 
-    <!-- Titre principal -->
     <TextView
         android:id="@+id/activityTitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="Embarquez pour l'aventure !"
         android:textAlignment="center"
-        android:textColor="#997E74"
-        android:textSize="20sp"
+        android:textColor=" #997E74"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Avatar -->
-    <ImageView
-        android:id="@+id/avatarImage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="12dp"
-        tools:srcCompat="@tools:sample/avatars"
-        app:layout_constraintTop_toBottomOf="@id/activityTitle3"
+    <ScrollView
+        android:id="@+id/scrollView10"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/formContainer"
-        app:layout_constraintHorizontal_bias="0.5"
-        tools:ignore="ContentDescription" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Conteneur principal du formulaire -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/formContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintTop_toTopOf="@id/avatarImage"
-        app:layout_constraintBottom_toTopOf="@id/button7"
-        app:layout_constraintStart_toEndOf="@id/avatarImage"
-        app:layout_constraintEnd_toEndOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <!-- Ligne 1 : Choix du héros -->
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vous êtes..."
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Spinner
-            android:id="@+id/spinnerHeros"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            app:layout_constraintStart_toEndOf="@id/textView15"
-            app:layout_constraintTop_toTopOf="@id/textView15" />
-
-        <!-- Ligne 2 : Âge -->
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Votre âge"
-            app:layout_constraintTop_toBottomOf="@id/textView15"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
-
-        <EditText
-            android:id="@+id/editTextAge"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="ex: 25"
-            app:layout_constraintTop_toTopOf="@id/textView16"
-            app:layout_constraintStart_toEndOf="@id/textView16"
-            app:layout_constraintBottom_toBottomOf="@id/textView16" />
-
-        <!-- Ligne 3 : Sexe -->
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vous êtes..."
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/textView16"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupSexe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="@id/textView17"
-            app:layout_constraintStart_toEndOf="@id/textView17">
-
-            <RadioButton
-                android:id="@+id/radioButton5"
+            <ImageView
+                android:id="@+id/avatarImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="un homme" />
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.892"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
-            <RadioButton
-                android:id="@+id/radioButton6"
+            <Spinner
+                android:id="@+id/spinnerHeros"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="28dp"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/avatarImage" />
+
+            <TextView
+                android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="une femme" />
-        </RadioGroup>
+                android:layout_marginEnd="56dp"
+                android:text="Vous êtes..."
+                app:layout_constraintBottom_toBottomOf="@+id/spinnerHeros"
+                app:layout_constraintEnd_toStartOf="@+id/avatarImage"
+                app:layout_constraintTop_toTopOf="@+id/spinnerHeros"
+                app:layout_constraintVertical_bias="0.379" />
 
-        <!-- Ligne 4 : Nom -->
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Comment vous appelez-vous ?"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/radioGroupSexe"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:labelFor="@id/editTextAge"
+                android:text="Votre âge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/editTextNom"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:hint="Votre nom"
-            android:inputType="textPersonName"
-            app:layout_constraintStart_toEndOf="@id/textView3"
-            app:layout_constraintTop_toTopOf="@id/textView3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/editTextAge"
+                android:layout_width="192dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                app:layout_constraintEnd_toEndOf="@+id/radioGroupSexe"
+                app:layout_constraintTop_toTopOf="@+id/textView16" />
 
-    <!-- Boutons navigation -->
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Vous êtes..."
+                app:layout_constraintStart_toStartOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupSexe"
+                android:layout_width="226dp"
+                android:layout_height="114dp"
+                app:layout_constraintStart_toEndOf="@+id/textView17"
+                app:layout_constraintTop_toTopOf="@+id/textView17">
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="un homme" />
+
+                <RadioButton
+                    android:id="@+id/radioButton6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="une femme" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:labelFor="@id/editTextNom"
+                android:text="Comment vous appelez-vous ?"
+                app:layout_constraintStart_toStartOf="@+id/textView17"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupSexe" />
+
+            <EditText
+                android:id="@+id/editTextNom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/radioGroupSexe"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/radioGroupSexe"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintVertical_bias="0.139" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
     <Button
         android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"
         android:text="Précédent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView10" />
 
     <Button
         android:id="@+id/button8"
@@ -152,7 +163,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="Suivant"
-        app:layout_constraintBottom_toBottomOf="@id/button7"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/button7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

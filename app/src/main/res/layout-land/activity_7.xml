@@ -22,9 +22,9 @@
 
     <ScrollView
         android:id="@+id/scrollView7"
-        android:layout_width="409dp"
-        android:layout_height="482dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="-50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,41 +70,41 @@
                         android:id="@+id/imageButton2"
                         android:layout_width="125dp"
                         android:layout_height="125dp"
-                        android:src="@drawable/plage"
+                        android:contentDescription="Plage"
                         android:scaleType="centerCrop"
-                        android:contentDescription="Plage" />
+                        android:src="@drawable/plage" />
 
                     <ImageButton
                         android:id="@+id/imageButton9"
                         android:layout_width="125dp"
                         android:layout_height="125dp"
-                        android:src="@drawable/savane"
+                        android:contentDescription="Savane"
                         android:scaleType="centerCrop"
-                        android:contentDescription="Savane" />
+                        android:src="@drawable/savane" />
 
                     <ImageButton
                         android:id="@+id/imageButton7"
                         android:layout_width="125dp"
                         android:layout_height="125dp"
-                        android:src="@drawable/foret"
+                        android:contentDescription="Forêt"
                         android:scaleType="centerCrop"
-                        android:contentDescription="Forêt" />
+                        android:src="@drawable/foret" />
 
                     <ImageButton
                         android:id="@+id/imageButton8"
                         android:layout_width="125dp"
                         android:layout_height="125dp"
-                        android:src="@drawable/montagne"
+                        android:contentDescription="Montagne"
                         android:scaleType="centerCrop"
-                        android:contentDescription="Montagne" />
+                        android:src="@drawable/montagne" />
 
                     <ImageButton
                         android:id="@+id/imageButton10"
                         android:layout_width="125dp"
                         android:layout_height="125dp"
-                        android:src="@drawable/desert"
+                        android:contentDescription="Désert"
                         android:scaleType="centerCrop"
-                        android:contentDescription="Désert" />
+                        android:src="@drawable/desert" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -139,7 +139,7 @@
                 android:layout_height="match_parent">
 
 
-            <RadioButton
+                <RadioButton
                     android:id="@+id/radioButton12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -208,7 +208,8 @@
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
         android:text="Précédent"
         app:layout_constraintStart_toStartOf="@+id/scrollView7"
         app:layout_constraintTop_toBottomOf="@+id/scrollView7" />

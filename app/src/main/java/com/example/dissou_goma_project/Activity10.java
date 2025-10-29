@@ -79,19 +79,15 @@ public class Activity10 extends AppCompatActivity {
                 reponseQ1 = "— Réponse non renseignée —";
         }
 
-// Q2 – Rêve de visiter l’Afrique
-        switch (q2_reve_afrique) {
-            case 1:
-                reponseQ2 = "✨ Tu rêves absolument de visiter l’Afrique, quelle belle motivation !";
-                break;
-            case 2:
-                reponseQ2 = "🌅 Tu aimerais y aller un jour, l’idée te séduit déjà.";
-                break;
-            case 3:
-                reponseQ2 = "💭 Ce n’est pas encore dans tes projets, mais qui sait ?";
-                break;
-            default:
-                reponseQ2 = "— Réponse non renseignée —";
+/// Q2 – Rêve de visiter l’Afrique
+        if (q2_reve_afrique >= 8) {
+            reponseQ2 = "✨ Tu rêves absolument de visiter l’Afrique, quelle belle motivation !";
+        } else if (q2_reve_afrique >= 4) {
+            reponseQ2 = "🌅 Tu aimerais y aller un jour, l’idée te séduit déjà.";
+        } else if (q2_reve_afrique >= 0) {
+            reponseQ2 = "💭 Ce n’est pas encore dans tes projets, mais qui sait ?";
+        } else {
+            reponseQ2 = "— Réponse non renseignée —";
         }
 
 // Q3 – Nombre de continents

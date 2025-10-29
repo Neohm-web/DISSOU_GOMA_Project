@@ -30,11 +30,12 @@
     <ScrollView
         android:id="@+id/scrollView8"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle8"
+        android:layout_height="200dp"
+        android:layout_marginTop="-50dp"
         app:layout_constraintBottom_toTopOf="@id/button21"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle8">
 
 
         <LinearLayout
@@ -130,14 +131,53 @@
                 android:textSize="16sp" />
 
 
-            <CheckBox android:id="@+id/cbLion" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lion" />
-            <CheckBox android:id="@+id/cbElephant" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Éléphant" />
-            <CheckBox android:id="@+id/cbRhino" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Rhinocéros" />
-            <CheckBox android:id="@+id/cbLeopard" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Léopard" />
-            <CheckBox android:id="@+id/cbBuffle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Buffle" />
-            <CheckBox android:id="@+id/cbGirafe" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Girafe" />
-            <CheckBox android:id="@+id/cbZebre" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Zèbre" />
-            <CheckBox android:id="@+id/cbGuepard" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Guépard" />
+            <CheckBox
+                android:id="@+id/cbLion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lion" />
+
+            <CheckBox
+                android:id="@+id/cbElephant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Éléphant" />
+
+            <CheckBox
+                android:id="@+id/cbRhino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rhinocéros" />
+
+            <CheckBox
+                android:id="@+id/cbLeopard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Léopard" />
+
+            <CheckBox
+                android:id="@+id/cbBuffle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buffle" />
+
+            <CheckBox
+                android:id="@+id/cbGirafe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Girafe" />
+
+            <CheckBox
+                android:id="@+id/cbZebre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Zèbre" />
+
+            <CheckBox
+                android:id="@+id/cbGuepard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guépard" />
 
 
             <!-- Q43 : Animal sans eau -->
@@ -153,8 +193,8 @@
                 android:id="@+id/toggleChameau"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textOn="Chameau"
-                android:textOff="Autre" />
+                android:textOff="Autre"
+                android:textOn="Chameau" />
         </LinearLayout>
     </ScrollView>
 

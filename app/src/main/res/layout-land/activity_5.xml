@@ -23,8 +23,8 @@
     <ScrollView
         android:id="@+id/scrollView5"
         android:layout_width="0dp"
-        android:layout_height="463dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="-50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,16 +65,10 @@
                 android:layout_height="match_parent" >
 
                 <RadioButton
-                    android:id="@+id/radioButton9"
+                    android:id="@+id/radioButton8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tiyi" />
-
-                <RadioButton
-                    android:id="@+id/radioButton11"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hatchepsout" />
+                    android:text="Cléopâtre" />
 
                 <RadioButton
                     android:id="@+id/radioButton10"
@@ -83,10 +77,16 @@
                     android:text="Nefertiti" />
 
                 <RadioButton
-                    android:id="@+id/radioButton8"
+                    android:id="@+id/radioButton11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cléopâtre" />
+                    android:text="Hatchepsout" />
+
+                <RadioButton
+                    android:id="@+id/radioButton9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tiyi" />
             </RadioGroup>
 
             <TextView
@@ -169,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:text="Precedent"
         app:layout_constraintStart_toStartOf="@+id/scrollView5"
         app:layout_constraintTop_toBottomOf="@+id/scrollView5" />
@@ -178,6 +178,7 @@
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
         android:text="Suivant"
         app:layout_constraintBottom_toBottomOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="@+id/scrollView5"

@@ -129,7 +129,8 @@ public class Activity6 extends AppCompatActivity {
         // Bouton Précédent
         buttonPrecedent.setOnClickListener(v -> {
             saveToSharedPreferences();
-            startActivity(new Intent(Activity6.this, Activity5.class));
+            Intent intent21= new Intent(Activity6.this, Activity5.class);
+            startActivity(intent21);
         });
 
 

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity4">
+
+
+    <!-- Titre -->
+    <TextView
+        android:id="@+id/activity4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="ACTIVITÉ 4 : TOUR GOURMAND"
+        android:textColor="#997E74"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- ScrollView principal -->
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigationLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <!-- Question 19 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="19) Le piment le plus fort du monde pousse en Afrique. Oseriez-vous ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:minHeight="48dp"
+                android:text="Oui ou Non"
+                android:textSize="16sp" />
+
+
+            <!-- Question 20 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="20) Votre plat africain idéal aurait quel niveau de piquant ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="1.0" />
+
+
+            <!-- Question 21 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="21) Quel est votre aliment de base essentiel ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Riz"
+                    android:textSize="16sp" />
+
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gombo"
+                    android:textSize="16sp" />
+
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Semoule"
+                    android:textSize="16sp" />
+
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Manioc"
+                    android:textSize="16sp" />
+
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Farine de maïs"
+                    android:textSize="16sp" />
+
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Igname"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+
+            <!-- Question 22 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="22) Quelle boisson est faite pour toi ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:minHeight="48dp" />
+
+
+            <!-- Question 23 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="23) Quel ingrédient africain te tente le plus ?"
+                android:textColor="#997E74"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/selectedIngredientImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="Image de l'ingrédient sélectionné"
+                android:scaleType="centerInside"
+                android:visibility="gone" />
+
+            <!-- Images défilables -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton1"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Fonio"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/fonio" />
+
+
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Moringa"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/moringa" />
+
+
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Beurre de karité"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/beurre_de_karite" />
+
+
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton4"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Poivre de Guinée"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/poivre_de_guinee" />
+
+
+                    <com.example.dissou_goma_project.SquareImageButton
+                        android:id="@+id/imageButton5"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Tamarin"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tamarin" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- Zone navigation -->
+    <LinearLayout
+        android:id="@+id/navigationLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4">
+
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Précédent" />
+
+
+        <Space
+            android:layout_width="32dp"
+            android:layout_height="match_parent" />
+
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suivant" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
